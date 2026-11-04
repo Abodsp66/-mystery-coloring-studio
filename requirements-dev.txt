@@ -1,0 +1,2 @@
+# Optional browser tests only. The website itself has no pip dependencies.
+playwright==1.62.0
