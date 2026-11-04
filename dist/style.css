@@ -4,7 +4,7 @@
 .linebar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid #e3e8e2}.linebar label{margin:0}.linebar input{width:100px}.linebar span{font-size:11px;color:#70837c}
 
 /* V5.2: fidelity comparison and 64-code palette */
-.metrics{grid-template-columns:repeat(6,minmax(0,1fr));}
+.metrics{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));}
 .overlayCompare{position:relative;width:100%;overflow:hidden;max-width:100%;}
 .overlayCompare .overlaySource{width:100%;height:auto;display:block;}
 .overlayCompare #overlaySolution{position:absolute;inset:0;pointer-events:none;}
