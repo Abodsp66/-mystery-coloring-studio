@@ -1,0 +1,1870 @@
+{
+  "versions": {
+    "python": "3.12.14",
+    "pymupdf": "1.26.6",
+    "fonttools": "4.61.1",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "shapely": "2.1.2"
+  },
+  "units": {
+    "pdf_points_to_mm": 0.35277777777777775,
+    "area_cutoff_mm2": 0.25
+  },
+  "files": [
+    {
+      "file": "100_nouveaux_coloriages_myst_res_21.pdf",
+      "bytes": 1784965,
+      "sha256": "481401616d58e641455799432bc6550f0550069451e4a4e4fdbbd092ca07ee8f",
+      "page_count": 1,
+      "metadata": {
+        "format": "PDF 1.6",
+        "title": "Mep-100_Coloriages_mysteres2.indd",
+        "author": "nicolaschevalier",
+        "subject": "",
+        "keywords": "",
+        "creator": "Adobe InDesign CS6 (Macintosh)",
+        "producer": "Acrobat Distiller 10.1.10 (Macintosh)",
+        "creationDate": "D:20140917140509+02'00'",
+        "modDate": "D:20240122110630+01'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "ocgs": {},
+      "pages": [
+        {
+          "file": "100_nouveaux_coloriages_myst_res_21.pdf",
+          "page": 1,
+          "page_count": 1,
+          "media_box_pt": [
+            0.0,
+            0.0,
+            694.4879760742188,
+            935.4329833984375
+          ],
+          "crop_box_pt": [
+            0.0,
+            0.0,
+            694.4879760742188,
+            935.4329833984375
+          ],
+          "trim_box_pt": [
+            42.52000045776367,
+            42.51995849609375,
+            651.968994140625,
+            892.9129829406738
+          ],
+          "bleed_box_pt": [
+            28.34600067138672,
+            28.34600830078125,
+            666.1420288085938,
+            907.0869827270508
+          ],
+          "rotation": 0,
+          "crop_width_mm": 244.99992489284938,
+          "crop_height_mm": 329.99996914333764,
+          "roi_pt": [
+            86.7,
+            62.09894,
+            640.86603,
+            846.37897
+          ],
+          "roi_width_mm": 195.49746058333332,
+          "roi_height_mm": 276.67656613888886,
+          "art_margins_from_crop_mm": [
+            30.58583333333333,
+            21.907126055555555,
+            18.916630976182716,
+            31.416276948893234
+          ],
+          "a4_fit_whole_crop_scale": 0.8571431199084792,
+          "a4_fit_crop_with_10mm_margin_scale": 0.7755104418219574,
+          "content_type": "vector_with_live_text",
+          "drawing_records_raw_not_cells": 852,
+          "path_type_histogram": {
+            "f": 89,
+            "s": 598,
+            "fs": 165
+          },
+          "drawing_layer_histogram": {
+            "": 852
+          },
+          "white_fill_records_by_layer": {
+            "": 185
+          },
+          "nonwhite_fill_records_by_layer": {
+            "": 69
+          },
+          "visible_chromatic_pixels_pct_at_150dpi": 0.0,
+          "fonts": [
+            {
+              "xref": 57,
+              "type": "Type1",
+              "extension": "cff",
+              "name": "Interstate-Black",
+              "embedded_bytes": 16876,
+              "subset": false
+            },
+            {
+              "xref": 59,
+              "type": "TrueType",
+              "extension": "ttf",
+              "name": "PPEELB+ArialMT",
+              "embedded_bytes": 43200,
+              "subset": true
+            }
+          ],
+          "images": [],
+          "selected_grey_stroke_records": 661,
+          "stroke_histogram": [
+            {
+              "width_pt": 0.567,
+              "width_mm": 0.20002499999999995,
+              "rgb": [
+                0.655299,
+                0.66363,
+                0.673457
+              ],
+              "layer": "",
+              "records": 661
+            }
+          ],
+          "live_art_label_glyphs": 853,
+          "art_code_histogram": {
+            "0": 164,
+            "1": 45,
+            "2": 106,
+            "3": 75,
+            "4": 54,
+            "5": 39,
+            "6": 20,
+            "7": 49,
+            "9": 22,
+            "A": 96,
+            "B": 23,
+            "C": 38,
+            "D": 36,
+            "E": 86
+          },
+          "legend_codes_extracted": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "0",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "1"
+          ],
+          "legend_unique_codes": 15,
+          "label_font_size_pt": {
+            "min": 4.251999855041504,
+            "p10": 5.669300079345703,
+            "p25": 5.669300079345703,
+            "p50": 5.669300079345703,
+            "p75": 5.669300079345703,
+            "p90": 5.669300079345703,
+            "max": 5.669300079345703
+          },
+          "trace_font_size_pt": {
+            "min": 4.251999855041504,
+            "p10": 5.669300079345703,
+            "p25": 5.669300079345703,
+            "p50": 5.669300079345703,
+            "p75": 5.669300079345703,
+            "p90": 5.669300079345703,
+            "max": 5.669300079345703
+          },
+          "label_ink_height_mm_uniform_trace_model": {
+            "min": 1.0737383857033111,
+            "p10": 1.431642832265546,
+            "p25": 1.431642832265546,
+            "p50": 1.4375022162993747,
+            "p75": 1.4619163164403288,
+            "p90": 1.4628928804459669,
+            "max": 1.480471032547454
+          },
+          "font_ink_bounds_labels": 853,
+          "rotated_labels_count": 0,
+          "a4_fit_min_label_pt": 3.6445724216006763,
+          "a4_safe_min_label_pt": 3.2974702862101353,
+          "art_code_missing_from_legend": [],
+          "geometry": {
+            "cubic_operators": 10098,
+            "line_operators": 331,
+            "cubic_arclength_share_excluding_rectangles": 0.8984064673103721,
+            "ink_box_overlap_pairs": 0,
+            "labels_in_ink_box_overlap": 0,
+            "ink_box_overlap_label_pct": 0.0,
+            "ink_box_outside_roi_count": 0,
+            "ink_box_to_stroke_centre_mm": {
+              "min": 0.0,
+              "p10": 0.0,
+              "p25": 0.35170261373876466,
+              "p50": 0.6958397680795836,
+              "p75": 1.1635316405931895,
+              "p90": 1.6900691171213418,
+              "max": 4.6983659445899235
+            },
+            "ink_box_stroke_conflict_candidates": 126,
+            "ink_box_stroke_conflict_candidate_pct": 14.77139507620164,
+            "stroke_conflict_review_examples": [
+              {
+                "code": "2",
+                "baseline_pt": [
+                  368.8790588378906,
+                  679.806884765625
+                ]
+              },
+              {
+                "code": "2",
+                "baseline_pt": [
+                  378.5509033203125,
+                  750.4747314453125
+                ]
+              },
+              {
+                "code": "2",
+                "baseline_pt": [
+                  363.5499267578125,
+                  470.8025207519531
+                ]
+              },
+              {
+                "code": "2",
+                "baseline_pt": [
+                  381.5499572753906,
+                  761.138671875
+                ]
+              },
+              {
+                "code": "2",
+                "baseline_pt": [
+                  368.8790588378906,
+                  663.4742431640625
+                ]
+              }
+            ],
+            "flattening_tolerance_pt": 0.03,
+            "snap_grid_pt": 0.001,
+            "faces_all_including_slivers": 3397,
+            "faces_ge_0_25_mm2": 1402,
+            "faces_lt_0_25_mm2": 1995,
+            "face_area_mm2_ge_0_25": {
+              "min": 0.25054105357638956,
+              "p10": 0.8183037758244541,
+              "p25": 2.97114175782408,
+              "p50": 11.970625575825625,
+              "p75": 39.15863503133873,
+              "p90": 87.98836127153159,
+              "max": 1310.4373621945049
+            },
+            "face_pct_lt_4_mm2_ge_0_25": 28.88730385164051,
+            "face_pct_gt_100_mm2_ge_0_25": 8.273894436519258,
+            "area_coverage_fraction": 0.9999999076129582,
+            "cut_length_pt": 508.7309955962098,
+            "dangle_length_pt": 11550.092770302555,
+            "invalid_rings": 0,
+            "labels_not_assigned": 0,
+            "labels_ambiguously_assigned": 0,
+            "faces_with_no_label": 782,
+            "faces_with_multiple_labels": 122,
+            "faces_with_mixed_codes": 0,
+            "known_code_adjacent_pairs": 922,
+            "same_code_adjacent_pairs": 437,
+            "same_code_shared_length_fraction": 0.49098557064529125,
+            "junction_degree_histogram": {
+              "3": 1256,
+              "4": 3128,
+              "2": 2753,
+              "5": 40,
+              "1": 924,
+              "6": 1
+            }
+          },
+          "geometry_sensitivity": {
+            "flattening_tolerance_pt": 0.015,
+            "faces_all_including_slivers": 3642,
+            "faces_ge_0_25_mm2": 1401,
+            "face_area_mm2_ge_0_25": {
+              "min": 0.2509921304320948,
+              "p10": 0.8193739835108143,
+              "p25": 2.974741536566366,
+              "p50": 11.992809173433635,
+              "p75": 39.21820275121137,
+              "p90": 88.03571096277382,
+              "max": 1310.442356521934
+            },
+            "area_coverage_fraction": 0.9999999076129582,
+            "dangle_length_pt": 11487.619432259648
+          },
+          "render_components": {
+            "render_dpi": 300,
+            "roi_selection": "PDF CADRE/clip rectangle",
+            "threshold_sensitivity": [
+              {
+                "threshold": 205,
+                "components_all_closed": 1441,
+                "components_ge_1_mm2": 895,
+                "area_mm2_ge_1": {
+                  "min": 1.6917528888888889,
+                  "p10": 12.487430222222223,
+                  "p25": 20.43723511111111,
+                  "p50": 38.91031644444444,
+                  "p75": 67.88158466666667,
+                  "p90": 104.30230035555556,
+                  "max": 454.3073351111111
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 0.44692737430167595,
+                "pct_gt_100_mm2_of_components_ge_1": 11.620111731843576
+              },
+              {
+                "threshold": 220,
+                "components_all_closed": 1479,
+                "components_ge_1_mm2": 898,
+                "area_mm2_ge_1": {
+                  "min": 1.6272368888888888,
+                  "p10": 12.136176444444445,
+                  "p25": 20.019673222222224,
+                  "p50": 38.222145777777776,
+                  "p75": 66.9048841111111,
+                  "p90": 102.5668199555556,
+                  "max": 450.4793857777778
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 0.5567928730512249,
+                "pct_gt_100_mm2_of_components_ge_1": 11.024498886414253
+              },
+              {
+                "threshold": 235,
+                "components_all_closed": 1551,
+                "components_ge_1_mm2": 919,
+                "area_mm2_ge_1": {
+                  "min": 1.1182773333333333,
+                  "p10": 11.825065955555555,
+                  "p25": 19.75981711111111,
+                  "p50": 38.55906266666667,
+                  "p75": 66.96402377777778,
+                  "p90": 102.67506346666669,
+                  "max": 446.81631066666665
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 0.6528835690968444,
+                "pct_gt_100_mm2_of_components_ge_1": 11.099020674646356
+              }
+            ],
+            "short_horizontal_dark_runs_mm": {
+              "min": 0.08466666666666667,
+              "p10": 0.16933333333333334,
+              "p25": 0.16933333333333334,
+              "p50": 0.25399999999999995,
+              "p75": 0.25399999999999995,
+              "p90": 0.33866666666666667,
+              "max": 0.5079999999999999
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "Coloriage_6_et_35.pdf",
+      "bytes": 11836837,
+      "sha256": "5729488c4462d12e0d4f6afc5a415137c6100c643c92a5b1d6a2101acc72cd53",
+      "page_count": 2,
+      "metadata": {
+        "format": "PDF 1.6",
+        "title": "35",
+        "author": "",
+        "subject": "",
+        "keywords": "",
+        "creator": "Adobe Illustrator 30.0 (Macintosh)",
+        "producer": "Adobe PDF library 17.00",
+        "creationDate": "D:20251201171956+01'00'",
+        "modDate": "D:20251202090504Z",
+        "trapped": "",
+        "encryption": null
+      },
+      "ocgs": {
+        "6155": {
+          "name": "COULEUR",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6156": {
+          "name": "CONTOUR",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6157": {
+          "name": "TRAITS",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6158": {
+          "name": "BLANC",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6159": {
+          "name": "CADRE",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6160": {
+          "name": "cube",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6161": {
+          "name": "chiffre-test",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6162": {
+          "name": "COULEUR",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6163": {
+          "name": "Calque 8",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6164": {
+          "name": "TRAITS",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6165": {
+          "name": "PRECOLO",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6166": {
+          "name": "CADRE",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6167": {
+          "name": "cube",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        },
+        "6168": {
+          "name": "chiffre-test",
+          "intent": [
+            "View",
+            "Design"
+          ],
+          "on": true,
+          "usage": "Artwork"
+        }
+      },
+      "pages": [
+        {
+          "file": "Coloriage_6_et_35.pdf",
+          "page": 1,
+          "page_count": 2,
+          "media_box_pt": [
+            0.0,
+            0.0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "crop_box_pt": [
+            0.0,
+            0.0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "trim_box_pt": [
+            0.0,
+            0.0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "bleed_box_pt": [
+            0.0,
+            0.0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "crop_width_mm": 210.00014478895397,
+          "crop_height_mm": 297.0000885009765,
+          "roi_pt": [
+            10.828,
+            10.29004,
+            586.028,
+            807.65002
+          ],
+          "roi_width_mm": 202.9177777777778,
+          "roi_height_mm": 281.29088183333334,
+          "art_margins_from_crop_mm": [
+            3.8198777777777773,
+            3.630097444444444,
+            3.2624892333984303,
+            12.079109223198769
+          ],
+          "a4_fit_whole_crop_scale": 0.9999993105292659,
+          "a4_fit_crop_with_10mm_margin_scale": 0.9047612809550502,
+          "content_type": "vector_with_live_text",
+          "drawing_records_raw_not_cells": 971,
+          "path_type_histogram": {
+            "f": 488,
+            "s": 222,
+            "fs": 261
+          },
+          "drawing_layer_histogram": {
+            "COULEUR": 461,
+            "CONTOUR": 272,
+            "TRAITS": 200,
+            "CADRE": 2,
+            "cube": 36
+          },
+          "white_fill_records_by_layer": {
+            "COULEUR": 29,
+            "CONTOUR": 266,
+            "CADRE": 1,
+            "cube": 1
+          },
+          "nonwhite_fill_records_by_layer": {
+            "COULEUR": 417,
+            "cube": 35
+          },
+          "visible_chromatic_pixels_pct_at_150dpi": 0.0,
+          "fonts": [
+            {
+              "xref": 6206,
+              "type": "TrueType",
+              "extension": "ttf",
+              "name": "FYQKTN+ArialMT",
+              "embedded_bytes": 56932,
+              "subset": true
+            }
+          ],
+          "images": [],
+          "selected_grey_stroke_records": 467,
+          "stroke_histogram": [
+            {
+              "width_pt": 0.5,
+              "width_mm": 0.17638888888888887,
+              "rgb": [
+                0.655299,
+                0.66363,
+                0.673457
+              ],
+              "layer": "CONTOUR",
+              "records": 266
+            },
+            {
+              "width_pt": 0.5,
+              "width_mm": 0.17638888888888887,
+              "rgb": [
+                0.703929,
+                0.711894,
+                0.720989
+              ],
+              "layer": "TRAITS",
+              "records": 200
+            },
+            {
+              "width_pt": 0.5,
+              "width_mm": 0.17638888888888887,
+              "rgb": [
+                0.778515,
+                0.785458,
+                0.793057
+              ],
+              "layer": "CADRE",
+              "records": 1
+            }
+          ],
+          "live_art_label_glyphs": 3104,
+          "art_code_histogram": {
+            "0": 224,
+            "1": 39,
+            "2": 35,
+            "3": 112,
+            "4": 55,
+            "5": 27,
+            "6": 73,
+            "7": 195,
+            "8": 65,
+            "9": 183,
+            "A": 137,
+            "B": 269,
+            "C": 223,
+            "D": 42,
+            "E": 25,
+            "F": 129,
+            "G": 93,
+            "H": 140,
+            "I": 209,
+            "J": 200,
+            "K": 82,
+            "L": 41,
+            "M": 104,
+            "N": 73,
+            "P": 51,
+            "Q": 6,
+            "R": 83,
+            "S": 67,
+            "T": 17,
+            "U": 5,
+            "V": 2,
+            "W": 15,
+            "X": 8,
+            "Y": 12,
+            "Ø": 63
+          },
+          "legend_codes_extracted": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "1",
+            "7",
+            "8",
+            "9",
+            "0",
+            "F",
+            "E",
+            "D",
+            "C",
+            "B",
+            "A",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "G",
+            "M",
+            "N",
+            "Ø",
+            "P",
+            "V",
+            "U",
+            "T",
+            "S",
+            "R",
+            "Q",
+            "Y",
+            "X",
+            "W"
+          ],
+          "legend_unique_codes": 35,
+          "label_font_size_pt": {
+            "min": 4.541114330291748,
+            "p10": 4.83099365234375,
+            "p25": 4.83099365234375,
+            "p50": 4.83099365234375,
+            "p75": 4.83099365234375,
+            "p90": 4.83099365234375,
+            "max": 4.830997943878174
+          },
+          "trace_font_size_pt": {
+            "min": 4.387599945068359,
+            "p10": 4.667699813842773,
+            "p25": 4.667699813842773,
+            "p50": 4.667699813842773,
+            "p75": 4.667699813842773,
+            "p90": 4.667699813842773,
+            "max": 4.667699813842773
+          },
+          "label_ink_height_mm_uniform_trace_model": {
+            "min": 1.1079808661196793,
+            "p10": 1.1787132252887305,
+            "p25": 1.1787132252887305,
+            "p50": 1.1787132252887305,
+            "p75": 1.2036382662054772,
+            "p90": 1.218914904186709,
+            "max": 1.2912779262030702
+          },
+          "font_ink_bounds_labels": 3104,
+          "rotated_labels_count": 1,
+          "a4_fit_min_label_pt": 4.541111199326317,
+          "a4_safe_min_label_pt": 4.1086244184380964,
+          "art_code_missing_from_legend": [],
+          "geometry": {
+            "cubic_operators": 10031,
+            "line_operators": 1046,
+            "cubic_arclength_share_excluding_rectangles": 0.8621476294674502,
+            "ink_box_overlap_pairs": 1,
+            "labels_in_ink_box_overlap": 2,
+            "ink_box_overlap_label_pct": 0.06443298969072164,
+            "ink_box_outside_roi_count": 0,
+            "ink_box_to_stroke_centre_mm": {
+              "min": 0.0,
+              "p10": 0.0,
+              "p25": 0.0,
+              "p50": 0.22683258657102928,
+              "p75": 0.7236612425024991,
+              "p90": 1.1450608899615111,
+              "max": 2.8376742614998585
+            },
+            "ink_box_stroke_conflict_candidates": 1287,
+            "ink_box_stroke_conflict_candidate_pct": 41.46262886597938,
+            "stroke_conflict_review_examples": [
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  131.7393035888672,
+                  511.4281005859375
+                ]
+              },
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  109.96448516845703,
+                  505.4480895996094
+                ]
+              },
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  84.95494842529297,
+                  510.08807373046875
+                ]
+              },
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  104.7413330078125,
+                  483.4281005859375
+                ]
+              },
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  115.24365997314453,
+                  483.2831115722656
+                ]
+              }
+            ],
+            "flattening_tolerance_pt": 0.03,
+            "snap_grid_pt": 0.001,
+            "faces_all_including_slivers": 6590,
+            "faces_ge_0_25_mm2": 4391,
+            "faces_lt_0_25_mm2": 2199,
+            "face_area_mm2_ge_0_25": {
+              "min": 0.2516550870910351,
+              "p10": 1.2426919092746855,
+              "p25": 3.1687047089737543,
+              "p50": 8.136936757754635,
+              "p75": 18.099871860966452,
+              "p90": 30.853597380196746,
+              "max": 133.7866264674306
+            },
+            "face_pct_lt_4_mm2_ge_0_25": 29.674333864723295,
+            "face_pct_gt_100_mm2_ge_0_25": 0.11386927806877704,
+            "area_coverage_fraction": 1.0000000250827736,
+            "cut_length_pt": 3.625671461065453,
+            "dangle_length_pt": 1333.5651644571217,
+            "invalid_rings": 0,
+            "labels_not_assigned": 2,
+            "labels_ambiguously_assigned": 0,
+            "faces_with_no_label": 1395,
+            "faces_with_multiple_labels": 96,
+            "faces_with_mixed_codes": 0,
+            "known_code_adjacent_pairs": 4767,
+            "same_code_adjacent_pairs": 3245,
+            "same_code_shared_length_fraction": 0.694541115271906,
+            "junction_degree_histogram": {
+              "3": 2264,
+              "4": 5513,
+              "6": 2,
+              "5": 51,
+              "2": 7089,
+              "1": 281
+            }
+          },
+          "geometry_sensitivity": {
+            "flattening_tolerance_pt": 0.015,
+            "faces_all_including_slivers": 6842,
+            "faces_ge_0_25_mm2": 4394,
+            "face_area_mm2_ge_0_25": {
+              "min": 0.2512213713117206,
+              "p10": 1.2458412707577091,
+              "p25": 3.1640764109075827,
+              "p50": 8.134920166059008,
+              "p75": 18.081783672829857,
+              "p90": 30.838268271567934,
+              "max": 133.8027331282668
+            },
+            "area_coverage_fraction": 1.0000000250827736,
+            "dangle_length_pt": 1303.8010849714092
+          },
+          "render_components": {
+            "render_dpi": 300,
+            "roi_selection": "PDF CADRE/clip rectangle",
+            "threshold_sensitivity": [
+              {
+                "threshold": 205,
+                "components_all_closed": 6294,
+                "components_ge_1_mm2": 3444,
+                "area_mm2_ge_1": {
+                  "min": 1.0035822222222222,
+                  "p10": 2.0021465333333333,
+                  "p25": 4.007160444444445,
+                  "p50": 10.05015911111111,
+                  "p75": 19.763401333333334,
+                  "p90": 32.29240853333334,
+                  "max": 123.71301422222221
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 24.97096399535424,
+                "pct_gt_100_mm2_of_components_ge_1": 0.05807200929152149
+              },
+              {
+                "threshold": 220,
+                "components_all_closed": 6502,
+                "components_ge_1_mm2": 3474,
+                "area_mm2_ge_1": {
+                  "min": 1.0035822222222222,
+                  "p10": 1.9017883111111111,
+                  "p25": 3.6917488888888887,
+                  "p50": 9.505357333333333,
+                  "p75": 19.247273333333332,
+                  "p90": 31.686674977777795,
+                  "max": 122.05710355555556
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 27.288428324697755,
+                "pct_gt_100_mm2_of_components_ge_1": 0.05757052389176742
+              },
+              {
+                "threshold": 235,
+                "components_all_closed": 6784,
+                "components_ge_1_mm2": 3483,
+                "area_mm2_ge_1": {
+                  "min": 1.0035822222222222,
+                  "p10": 1.820784888888889,
+                  "p25": 3.4874482222222225,
+                  "p50": 9.060913777777778,
+                  "p75": 18.781324444444444,
+                  "p90": 31.080941422222224,
+                  "max": 120.41552977777778
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 28.366350846971,
+                "pct_gt_100_mm2_of_components_ge_1": 0.057421762848119444
+              }
+            ],
+            "short_horizontal_dark_runs_mm": {
+              "min": 0.08466666666666667,
+              "p10": 0.16933333333333334,
+              "p25": 0.16933333333333334,
+              "p50": 0.16933333333333334,
+              "p75": 0.25399999999999995,
+              "p90": 0.33866666666666667,
+              "max": 0.5079999999999999
+            }
+          }
+        },
+        {
+          "file": "Coloriage_6_et_35.pdf",
+          "page": 2,
+          "page_count": 2,
+          "media_box_pt": [
+            0.0,
+            0.0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "crop_box_pt": [
+            0.0,
+            0.0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "trim_box_pt": [
+            0.0,
+            0.0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "bleed_box_pt": [
+            0.0,
+            0.0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "crop_width_mm": 210.00014478895397,
+          "crop_height_mm": 297.0000885009765,
+          "roi_pt": [
+            10.828,
+            10.29004,
+            586.028,
+            807.65002
+          ],
+          "roi_width_mm": 202.9177777777778,
+          "roi_height_mm": 281.29088183333334,
+          "art_margins_from_crop_mm": [
+            3.8198777777777773,
+            3.630097444444444,
+            3.2624892333984303,
+            12.079109223198769
+          ],
+          "a4_fit_whole_crop_scale": 0.9999993105292659,
+          "a4_fit_crop_with_10mm_margin_scale": 0.9047612809550502,
+          "content_type": "vector_with_live_text",
+          "drawing_records_raw_not_cells": 4965,
+          "path_type_histogram": {
+            "f": 3039,
+            "s": 155,
+            "fs": 1771
+          },
+          "drawing_layer_histogram": {
+            "COULEUR": 2966,
+            "Calque 8": 1780,
+            "TRAITS": 148,
+            "PRECOLO": 33,
+            "CADRE": 2,
+            "cube": 36
+          },
+          "white_fill_records_by_layer": {
+            "COULEUR": 67,
+            "Calque 8": 1775,
+            "PRECOLO": 4,
+            "CADRE": 1,
+            "cube": 1
+          },
+          "nonwhite_fill_records_by_layer": {
+            "COULEUR": 2898,
+            "PRECOLO": 29,
+            "cube": 35
+          },
+          "visible_chromatic_pixels_pct_at_150dpi": 0.15541430935727626,
+          "fonts": [
+            {
+              "xref": 6147,
+              "type": "TrueType",
+              "extension": "ttf",
+              "name": "FYQKTN+ArialMT",
+              "embedded_bytes": 56932,
+              "subset": true
+            }
+          ],
+          "images": [],
+          "selected_grey_stroke_records": 1899,
+          "stroke_histogram": [
+            {
+              "width_pt": 0.5,
+              "width_mm": 0.17638888888888887,
+              "rgb": [
+                0.655299,
+                0.66363,
+                0.673457
+              ],
+              "layer": "Calque 8",
+              "records": 1750
+            },
+            {
+              "width_pt": 0.5,
+              "width_mm": 0.17638888888888887,
+              "rgb": [
+                0.703929,
+                0.711894,
+                0.720989
+              ],
+              "layer": "TRAITS",
+              "records": 148
+            },
+            {
+              "width_pt": 0.5,
+              "width_mm": 0.17638888888888887,
+              "rgb": [
+                0.778515,
+                0.785458,
+                0.793057
+              ],
+              "layer": "CADRE",
+              "records": 1
+            }
+          ],
+          "live_art_label_glyphs": 3038,
+          "art_code_histogram": {
+            "0": 253,
+            "1": 85,
+            "2": 41,
+            "3": 62,
+            "4": 81,
+            "5": 429,
+            "6": 49,
+            "7": 158,
+            "8": 18,
+            "9": 165,
+            "A": 33,
+            "B": 61,
+            "C": 24,
+            "D": 236,
+            "E": 113,
+            "F": 16,
+            "G": 3,
+            "H": 105,
+            "I": 48,
+            "J": 126,
+            "K": 67,
+            "L": 21,
+            "M": 118,
+            "N": 68,
+            "P": 57,
+            "Q": 54,
+            "R": 10,
+            "S": 82,
+            "T": 46,
+            "U": 113,
+            "V": 60,
+            "W": 36,
+            "X": 40,
+            "Y": 28,
+            "Ø": 132
+          },
+          "legend_codes_extracted": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "1",
+            "7",
+            "8",
+            "9",
+            "0",
+            "F",
+            "E",
+            "D",
+            "C",
+            "B",
+            "A",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "G",
+            "M",
+            "N",
+            "Ø",
+            "P",
+            "V",
+            "U",
+            "T",
+            "S",
+            "R",
+            "Q",
+            "Y",
+            "X",
+            "W"
+          ],
+          "legend_unique_codes": 35,
+          "label_font_size_pt": {
+            "min": 4.541100978851318,
+            "p10": 4.83099365234375,
+            "p25": 4.83099365234375,
+            "p50": 4.83099365234375,
+            "p75": 4.83099365234375,
+            "p90": 4.83099365234375,
+            "max": 4.83101224899292
+          },
+          "trace_font_size_pt": {
+            "min": 4.387599945068359,
+            "p10": 4.667699813842773,
+            "p25": 4.667699813842773,
+            "p50": 4.667699813842773,
+            "p75": 4.667699813842773,
+            "p90": 4.667699813842773,
+            "max": 4.667720317840576
+          },
+          "label_ink_height_mm_uniform_trace_model": {
+            "min": 1.1079808661196793,
+            "p10": 1.1634365873074985,
+            "p25": 1.1787132252887305,
+            "p50": 1.1827333931785282,
+            "p75": 1.2036382662054772,
+            "p90": 1.2044422997834368,
+            "max": 1.2912779262030702
+          },
+          "font_ink_bounds_labels": 3038,
+          "rotated_labels_count": 12,
+          "a4_fit_min_label_pt": 4.541097847895093,
+          "a4_safe_min_label_pt": 4.108612338571751,
+          "art_code_missing_from_legend": [],
+          "geometry": {
+            "cubic_operators": 22206,
+            "line_operators": 1953,
+            "cubic_arclength_share_excluding_rectangles": 0.8975968535802847,
+            "ink_box_overlap_pairs": 5,
+            "labels_in_ink_box_overlap": 10,
+            "ink_box_overlap_label_pct": 0.32916392363396973,
+            "ink_box_outside_roi_count": 0,
+            "ink_box_to_stroke_centre_mm": {
+              "min": 0.0,
+              "p10": 0.0,
+              "p25": 0.0,
+              "p50": 0.23975827688717996,
+              "p75": 0.7901428287756209,
+              "p90": 1.2053835363042473,
+              "max": 2.9904034512285973
+            },
+            "ink_box_stroke_conflict_candidates": 1145,
+            "ink_box_stroke_conflict_candidate_pct": 37.68926925608953,
+            "stroke_conflict_review_examples": [
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  173.24270629882812,
+                  652.9739990234375
+                ]
+              },
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  204.6436004638672,
+                  657.3489990234375
+                ]
+              },
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  129.6811981201172,
+                  608.3402099609375
+                ]
+              },
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  117.79540252685547,
+                  613.7709350585938
+                ]
+              },
+              {
+                "code": "Y",
+                "baseline_pt": [
+                  58.46780014038086,
+                  606.3392333984375
+                ]
+              }
+            ],
+            "flattening_tolerance_pt": 0.03,
+            "snap_grid_pt": 0.001,
+            "faces_all_including_slivers": 8537,
+            "faces_ge_0_25_mm2": 3066,
+            "faces_lt_0_25_mm2": 5471,
+            "face_area_mm2_ge_0_25": {
+              "min": 0.29033158281635574,
+              "p10": 3.1065063504456,
+              "p25": 6.489542539108813,
+              "p50": 13.385239028701772,
+              "p75": 24.767622613451028,
+              "p90": 41.21847637286844,
+              "max": 156.09551137217213
+            },
+            "face_pct_lt_4_mm2_ge_0_25": 14.709719504240052,
+            "face_pct_gt_100_mm2_ge_0_25": 0.5870841487279843,
+            "area_coverage_fraction": 1.0000000250827736,
+            "cut_length_pt": 35.157914910312606,
+            "dangle_length_pt": 1299.3406107538926,
+            "invalid_rings": 0,
+            "labels_not_assigned": 0,
+            "labels_ambiguously_assigned": 0,
+            "faces_with_no_label": 108,
+            "faces_with_multiple_labels": 75,
+            "faces_with_mixed_codes": 0,
+            "known_code_adjacent_pairs": 5835,
+            "same_code_adjacent_pairs": 3117,
+            "same_code_shared_length_fraction": 0.6031099581409811,
+            "junction_degree_histogram": {
+              "4": 3813,
+              "2": 31424,
+              "6": 25,
+              "3": 9087,
+              "5": 261,
+              "1": 624
+            }
+          },
+          "geometry_sensitivity": {
+            "flattening_tolerance_pt": 0.015,
+            "faces_all_including_slivers": 9854,
+            "faces_ge_0_25_mm2": 3066,
+            "face_area_mm2_ge_0_25": {
+              "min": 0.2953765000462959,
+              "p10": 3.1054916919810918,
+              "p25": 6.500853031471827,
+              "p50": 13.383236002291666,
+              "p75": 24.772495584464686,
+              "p90": 41.22600031490933,
+              "max": 156.032918531408
+            },
+            "area_coverage_fraction": 1.0000000250827736,
+            "dangle_length_pt": 1286.0701856054916
+          },
+          "render_components": {
+            "render_dpi": 300,
+            "roi_selection": "PDF CADRE/clip rectangle",
+            "threshold_sensitivity": [
+              {
+                "threshold": 205,
+                "components_all_closed": 6096,
+                "components_ge_1_mm2": 3287,
+                "area_mm2_ge_1": {
+                  "min": 1.0035822222222222,
+                  "p10": 1.7060897777777777,
+                  "p25": 3.8351177777777776,
+                  "p50": 10.17919111111111,
+                  "p75": 20.82433111111111,
+                  "p90": 33.99849831111111,
+                  "max": 120.40836133333333
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 26.011560693641616,
+                "pct_gt_100_mm2_of_components_ge_1": 0.1216915120170368
+              },
+              {
+                "threshold": 220,
+                "components_all_closed": 6127,
+                "components_ge_1_mm2": 3282,
+                "area_mm2_ge_1": {
+                  "min": 1.0035822222222222,
+                  "p10": 1.6630791111111112,
+                  "p25": 3.713254222222222,
+                  "p50": 9.910374444444443,
+                  "p75": 20.313579444444443,
+                  "p90": 33.417854311111114,
+                  "max": 117.89223733333333
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 26.569165143205364,
+                "pct_gt_100_mm2_of_components_ge_1": 0.1218769043266301
+              },
+              {
+                "threshold": 235,
+                "components_all_closed": 6354,
+                "components_ge_1_mm2": 3264,
+                "area_mm2_ge_1": {
+                  "min": 1.0035822222222222,
+                  "p10": 1.648742222222222,
+                  "p25": 3.569885333333333,
+                  "p50": 9.616468222222222,
+                  "p75": 19.931859777777778,
+                  "p90": 33.010686666666665,
+                  "max": 116.37252711111111
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 27.083333333333332,
+                "pct_gt_100_mm2_of_components_ge_1": 0.12254901960784313
+              }
+            ],
+            "short_horizontal_dark_runs_mm": {
+              "min": 0.08466666666666667,
+              "p10": 0.16933333333333334,
+              "p25": 0.16933333333333334,
+              "p50": 0.25399999999999995,
+              "p75": 0.25399999999999995,
+              "p90": 0.33866666666666667,
+              "max": 0.5079999999999999
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "Coloriage_98_Grands_Classiques_tome_2.pdf",
+      "bytes": 252817,
+      "sha256": "42d99f2d2cfe3049dc21d4ce646543284b0d049eaa3f43b2d111f52575014041",
+      "page_count": 1,
+      "metadata": {
+        "format": "PDF 1.6",
+        "title": "100-CM-DISNEY-T2_REIMP.indd",
+        "author": "mac1015",
+        "subject": "",
+        "keywords": "",
+        "creator": "Adobe InDesign CC 2015 (Macintosh)",
+        "producer": "Acrobat Distiller 10.1.16 (Macintosh)",
+        "creationDate": "D:20250404180209+02'00'",
+        "modDate": "D:20250404180236+02'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "ocgs": {},
+      "pages": [
+        {
+          "file": "Coloriage_98_Grands_Classiques_tome_2.pdf",
+          "page": 1,
+          "page_count": 1,
+          "media_box_pt": [
+            0.0,
+            0.0,
+            694.4879760742188,
+            935.4329833984375
+          ],
+          "crop_box_pt": [
+            35.781700134277344,
+            35.781982421875,
+            660.2169799804688,
+            902.3980102539062
+          ],
+          "trim_box_pt": [
+            42.52000045776367,
+            42.51995849609375,
+            651.968994140625,
+            892.9129829406738
+          ],
+          "bleed_box_pt": [
+            35.781700134277344,
+            35.781982421875,
+            660.2169799804688,
+            902.3979835510254
+          ],
+          "rotation": 0,
+          "crop_width_mm": 220.28689846462672,
+          "crop_height_mm": 305.72287648518875,
+          "roi_pt": [
+            29.1443,
+            31.96503,
+            592.83337,
+            813.375
+          ],
+          "roi_width_mm": 198.85697747222216,
+          "roi_height_mm": 275.66407275,
+          "art_margins_from_crop_mm": [
+            10.281461388888887,
+            11.276552249999998,
+            11.148459603515644,
+            18.7822514851888
+          ],
+          "a4_fit_whole_crop_scale": 0.9533022683767162,
+          "a4_fit_crop_with_10mm_margin_scale": 0.8625115761503622,
+          "content_type": "vector_with_live_text",
+          "drawing_records_raw_not_cells": 1211,
+          "path_type_histogram": {
+            "f": 34,
+            "s": 1130,
+            "fs": 47
+          },
+          "drawing_layer_histogram": {
+            "": 1211
+          },
+          "white_fill_records_by_layer": {
+            "": 61
+          },
+          "nonwhite_fill_records_by_layer": {
+            "": 20
+          },
+          "visible_chromatic_pixels_pct_at_150dpi": 0.0,
+          "fonts": [
+            {
+              "xref": 34,
+              "type": "Type1",
+              "extension": "cff",
+              "name": "Interstate-Black",
+              "embedded_bytes": 16856,
+              "subset": false
+            },
+            {
+              "xref": 37,
+              "type": "Type0",
+              "extension": "ttf",
+              "name": "DOHEEF+ArialMT",
+              "embedded_bytes": 53760,
+              "subset": true
+            },
+            {
+              "xref": 39,
+              "type": "TrueType",
+              "extension": "ttf",
+              "name": "DOHEKL+Helvetica",
+              "embedded_bytes": 28428,
+              "subset": true
+            }
+          ],
+          "images": [],
+          "selected_grey_stroke_records": 1124,
+          "stroke_histogram": [
+            {
+              "width_pt": 0.556,
+              "width_mm": 0.19614444444444445,
+              "rgb": [
+                0.778515,
+                0.785458,
+                0.793057
+              ],
+              "layer": "",
+              "records": 1124
+            }
+          ],
+          "live_art_label_glyphs": 2880,
+          "art_code_histogram": {
+            "0": 3,
+            "1": 336,
+            "2": 24,
+            "3": 34,
+            "4": 25,
+            "5": 92,
+            "6": 248,
+            "7": 39,
+            "8": 60,
+            "9": 18,
+            "A": 429,
+            "B": 747,
+            "C": 226,
+            "D": 318,
+            "E": 82,
+            "F": 199
+          },
+          "legend_codes_extracted": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "0",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "1"
+          ],
+          "legend_unique_codes": 16,
+          "label_font_size_pt": {
+            "min": 4.026118278503418,
+            "p10": 5.368075370788574,
+            "p25": 5.368075370788574,
+            "p50": 5.368075370788574,
+            "p75": 5.368075370788574,
+            "p90": 5.368075370788574,
+            "max": 5.368075370788574
+          },
+          "trace_font_size_pt": {
+            "min": 3.890000104904175,
+            "p10": 5.186600208282471,
+            "p25": 5.186600208282471,
+            "p50": 5.186600208282471,
+            "p75": 5.186600208282471,
+            "p90": 5.186600208282471,
+            "max": 5.186600208282471
+          },
+          "label_ink_height_mm_uniform_trace_model": {
+            "min": 0.9823242181142429,
+            "p10": 1.3097488063943779,
+            "p25": 1.3097488063943779,
+            "p50": 1.3097488063943779,
+            "p75": 1.3151093062841228,
+            "p90": 1.337444722491394,
+            "max": 1.35441963880892
+          },
+          "font_ink_bounds_labels": 2880,
+          "rotated_labels_count": 0,
+          "a4_fit_min_label_pt": 3.8381076876502678,
+          "a4_safe_min_label_pt": 3.472573622159766,
+          "art_code_missing_from_legend": [],
+          "geometry": {
+            "cubic_operators": 6753,
+            "line_operators": 186,
+            "cubic_arclength_share_excluding_rectangles": 0.9743132650424245,
+            "ink_box_overlap_pairs": 0,
+            "labels_in_ink_box_overlap": 0,
+            "ink_box_overlap_label_pct": 0.0,
+            "ink_box_outside_roi_count": 0,
+            "ink_box_to_stroke_centre_mm": {
+              "min": 0.0,
+              "p10": 0.0,
+              "p25": 0.15173699472817467,
+              "p50": 0.35333155139159567,
+              "p75": 0.581638210608593,
+              "p90": 0.8216964201263823,
+              "max": 1.8478142063757854
+            },
+            "ink_box_stroke_conflict_candidates": 580,
+            "ink_box_stroke_conflict_candidate_pct": 20.13888888888889,
+            "stroke_conflict_review_examples": [
+              {
+                "code": "1",
+                "baseline_pt": [
+                  187.06631469726562,
+                  435.10101318359375
+                ]
+              },
+              {
+                "code": "1",
+                "baseline_pt": [
+                  149.82546997070312,
+                  434.3681945800781
+                ]
+              },
+              {
+                "code": "1",
+                "baseline_pt": [
+                  154.97161865234375,
+                  432.1619567871094
+                ]
+              },
+              {
+                "code": "1",
+                "baseline_pt": [
+                  170.03817749023438,
+                  490.7161560058594
+                ]
+              },
+              {
+                "code": "1",
+                "baseline_pt": [
+                  164.6492919921875,
+                  503.7830810546875
+                ]
+              }
+            ],
+            "flattening_tolerance_pt": 0.03,
+            "snap_grid_pt": 0.001,
+            "faces_all_including_slivers": 2765,
+            "faces_ge_0_25_mm2": 1927,
+            "faces_lt_0_25_mm2": 838,
+            "face_area_mm2_ge_0_25": {
+              "min": 0.26499735431328386,
+              "p10": 3.1927378025841144,
+              "p25": 7.037928788013103,
+              "p50": 13.461852120945222,
+              "p75": 25.981094866658964,
+              "p90": 58.57942534141282,
+              "max": 635.3178202369669
+            },
+            "face_pct_lt_4_mm2_ge_0_25": 13.388687078360146,
+            "face_pct_gt_100_mm2_ge_0_25": 6.0716139076284374,
+            "area_coverage_fraction": 0.9999999142101981,
+            "cut_length_pt": 319.609185398677,
+            "dangle_length_pt": 23360.73872228875,
+            "invalid_rings": 0,
+            "labels_not_assigned": 0,
+            "labels_ambiguously_assigned": 0,
+            "faces_with_no_label": 428,
+            "faces_with_multiple_labels": 417,
+            "faces_with_mixed_codes": 0,
+            "known_code_adjacent_pairs": 2944,
+            "same_code_adjacent_pairs": 2126,
+            "same_code_shared_length_fraction": 0.6992955970487197,
+            "junction_degree_histogram": {
+              "3": 592,
+              "4": 3495,
+              "2": 1888,
+              "1": 2463,
+              "5": 11,
+              "6": 1
+            }
+          },
+          "geometry_sensitivity": {
+            "flattening_tolerance_pt": 0.015,
+            "faces_all_including_slivers": 2900,
+            "faces_ge_0_25_mm2": 1935,
+            "face_area_mm2_ge_0_25": {
+              "min": 0.2538057448765413,
+              "p10": 3.2000139230378273,
+              "p25": 7.052012012285882,
+              "p50": 13.466545771952156,
+              "p75": 25.936825770858427,
+              "p90": 58.57744590490978,
+              "max": 635.244518474471
+            },
+            "area_coverage_fraction": 0.9999999142101981,
+            "dangle_length_pt": 23302.826177387393
+          },
+          "render_components": {
+            "render_dpi": 300,
+            "roi_selection": "PDF CADRE/clip rectangle",
+            "threshold_sensitivity": [
+              {
+                "threshold": 205,
+                "components_all_closed": 5766,
+                "components_ge_1_mm2": 2859,
+                "area_mm2_ge_1": {
+                  "min": 1.211467111111111,
+                  "p10": 6.946222666666666,
+                  "p25": 9.996395777777778,
+                  "p50": 14.716816444444444,
+                  "p75": 21.562680888888888,
+                  "p90": 29.022164177777785,
+                  "max": 86.52312444444445
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 1.2591815320041972,
+                "pct_gt_100_mm2_of_components_ge_1": 0.0
+              },
+              {
+                "threshold": 220,
+                "components_all_closed": 6222,
+                "components_ge_1_mm2": 2897,
+                "area_mm2_ge_1": {
+                  "min": 1.1182773333333333,
+                  "p10": 6.4386968,
+                  "p25": 9.404999111111112,
+                  "p50": 14.021477333333333,
+                  "p75": 20.59494088888889,
+                  "p90": 27.594210044444445,
+                  "max": 85.08226711111111
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 2.105626510182948,
+                "pct_gt_100_mm2_of_components_ge_1": 0.0
+              },
+              {
+                "threshold": 235,
+                "components_all_closed": 6542,
+                "components_ge_1_mm2": 2939,
+                "area_mm2_ge_1": {
+                  "min": 1.046592888888889,
+                  "p10": 5.704648088888889,
+                  "p25": 8.820770888888887,
+                  "p50": 13.30463288888889,
+                  "p75": 19.72755911111111,
+                  "p90": 26.490269600000012,
+                  "max": 83.68442044444444
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 4.014971078598163,
+                "pct_gt_100_mm2_of_components_ge_1": 0.0
+              }
+            ],
+            "short_horizontal_dark_runs_mm": {
+              "min": 0.08466666666666667,
+              "p10": 0.16933333333333334,
+              "p25": 0.16933333333333334,
+              "p50": 0.16933333333333334,
+              "p75": 0.25399999999999995,
+              "p90": 0.33866666666666667,
+              "max": 0.5079999999999999
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "Pixar_82.pdf",
+      "bytes": 7696903,
+      "sha256": "bcdcfc8f059be6e77f026227b82b5bf72104428c9e9eca9d1c77558ba95a90cf",
+      "page_count": 1,
+      "metadata": {
+        "format": "PDF 1.3",
+        "title": "92-dory02",
+        "author": "",
+        "subject": "",
+        "keywords": "",
+        "creator": "Adobe Illustrator CC 2015 (Windows)",
+        "producer": "Adobe Photoshop Elements for Windows -- Image Conversion Plug-in",
+        "creationDate": "D:20161206032951+02'00'",
+        "modDate": "D:20240122105928+01'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "ocgs": {},
+      "pages": [
+        {
+          "file": "Pixar_82.pdf",
+          "page": 1,
+          "page_count": 1,
+          "media_box_pt": [
+            0.0,
+            0.0,
+            588.719970703125,
+            826.7999877929688
+          ],
+          "crop_box_pt": [
+            0.0,
+            0.0,
+            588.719970703125,
+            826.7999877929688
+          ],
+          "trim_box_pt": [
+            0.0,
+            0.0,
+            588.719970703125,
+            826.7999877929688
+          ],
+          "bleed_box_pt": [
+            0.0,
+            0.0,
+            588.719970703125,
+            826.7999877929688
+          ],
+          "rotation": 0,
+          "crop_width_mm": 207.68732299804685,
+          "crop_height_mm": 291.67666236029726,
+          "roi_pt": [
+            4.0,
+            2.0,
+            580.0,
+            800.0
+          ],
+          "roi_width_mm": 203.2,
+          "roi_height_mm": 281.51666666666665,
+          "art_margins_from_crop_mm": [
+            1.411111111111111,
+            0.7055555555555555,
+            3.0762118869357638,
+            9.454440138075086
+          ],
+          "a4_fit_whole_crop_scale": 1.0111353787442043,
+          "a4_fit_crop_with_10mm_margin_scale": 0.9148367712447563,
+          "content_type": "raster",
+          "drawing_records_raw_not_cells": 0,
+          "path_type_histogram": {},
+          "drawing_layer_histogram": {},
+          "white_fill_records_by_layer": {},
+          "nonwhite_fill_records_by_layer": {},
+          "visible_chromatic_pixels_pct_at_150dpi": 0.0,
+          "fonts": [],
+          "images": [
+            {
+              "xref": 10,
+              "width_px": 2453,
+              "height_px": 3445,
+              "bits_per_component": 8,
+              "color_space": "DeviceRGB",
+              "bbox_pt": [
+                0.0,
+                0.0,
+                588.719970703125,
+                826.7999877929688
+              ],
+              "filter": "/DCTDecode",
+              "effective_dpi_x": 300.0000149291054,
+              "effective_dpi_y": 300.0000044292567
+            }
+          ],
+          "selected_grey_stroke_records": 0,
+          "stroke_histogram": [],
+          "live_art_label_glyphs": 0,
+          "art_code_histogram": {},
+          "legend_codes_extracted": [],
+          "legend_unique_codes": 0,
+          "label_font_size_pt": null,
+          "trace_font_size_pt": null,
+          "label_ink_height_mm_uniform_trace_model": null,
+          "font_ink_bounds_labels": 0,
+          "rotated_labels_count": 0,
+          "a4_fit_min_label_pt": null,
+          "a4_safe_min_label_pt": null,
+          "art_code_missing_from_legend": [],
+          "raster_analysis": {
+            "render_dpi": 300,
+            "roi_selection": "manual visible raster frame; approximate",
+            "threshold_sensitivity": [
+              {
+                "threshold": 205,
+                "components_all_closed": 1625,
+                "components_ge_1_mm2": 837,
+                "area_mm2_ge_1": {
+                  "min": 2.1720386666666665,
+                  "p10": 9.069515911111111,
+                  "p25": 14.738321777777777,
+                  "p50": 25.096724,
+                  "p75": 68.22925422222222,
+                  "p90": 164.52010106666665,
+                  "max": 920.4784457777778
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 0.8363201911589008,
+                "pct_gt_100_mm2_of_components_ge_1": 17.801672640382318
+              },
+              {
+                "threshold": 220,
+                "components_all_closed": 1691,
+                "components_ge_1_mm2": 841,
+                "area_mm2_ge_1": {
+                  "min": 2.0143328888888887,
+                  "p10": 8.752670666666667,
+                  "p25": 14.372731111111111,
+                  "p50": 24.580596,
+                  "p75": 68.06438,
+                  "p90": 161.92799155555556,
+                  "max": 909.6182524444445
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 0.8323424494649228,
+                "pct_gt_100_mm2_of_components_ge_1": 17.717003567181926
+              },
+              {
+                "threshold": 235,
+                "components_all_closed": 1738,
+                "components_ge_1_mm2": 842,
+                "area_mm2_ge_1": {
+                  "min": 1.8781324444444445,
+                  "p10": 8.447294933333334,
+                  "p25": 13.928287555555555,
+                  "p50": 24.071636444444444,
+                  "p75": 66.790189,
+                  "p90": 160.35523484444442,
+                  "max": 900.3566222222222
+                },
+                "pct_lt_4_mm2_of_components_ge_1": 0.831353919239905,
+                "pct_gt_100_mm2_of_components_ge_1": 17.695961995249405
+              }
+            ],
+            "short_horizontal_dark_runs_mm": {
+              "min": 0.08466666666666667,
+              "p10": 0.16933333333333334,
+              "p25": 0.16933333333333334,
+              "p50": 0.16933333333333334,
+              "p75": 0.25399999999999995,
+              "p90": 0.33866666666666667,
+              "max": 0.5079999999999999
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
