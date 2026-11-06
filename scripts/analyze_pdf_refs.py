@@ -58,6 +58,12 @@ def drawing_selected(drawing, roi):
             and fitz.Rect(drawing['rect']).intersects(fitz.Rect(roi)))
 
 
+def stroke_styles(drawings):
+    counts = Counter((d.get('dashes'), tuple(d.get('lineCap', [])), d.get('lineJoin')) for d in drawings)
+    return [{'dashes': key[0], 'line_cap': list(key[1]), 'line_join': key[2], 'records': count}
+            for key, count in counts.most_common()]
+
+
 def font_resources(doc, page):
     result, programs = [], {}
     seen = set()
@@ -329,6 +335,7 @@ def page_metrics(doc,page,path,index,sensitivity):
         'visible_chromatic_pixels_pct_at_150dpi':float(100*np.mean((rgb.max(axis=1)-rgb.min(axis=1)>=20)&(rgb.min(axis=1)<245))),
         'fonts':fonts,'images':images,
         'selected_grey_stroke_records':len(chosen),
+        'stroke_style_histogram':stroke_styles(chosen),
         'stroke_histogram':[{'width_pt':key[0],'width_mm':key[0]*MM,'rgb':list(key[1]),'layer':key[2],'records':n}
             for key,n in Counter((round(d['width'],6),tuple(round(v,6) for v in d['color']),d.get('layer','')) for d in chosen).most_common()],
         'live_art_label_glyphs':len(labels),'art_code_histogram':dict(sorted(Counter(a['code'] for a in labels).items())),
