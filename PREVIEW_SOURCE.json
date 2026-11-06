@@ -1,7 +1,7 @@
 {
   "repository": "Abodsp66/-mystery-coloring-studio",
-  "source_branch": "main",
-  "source_commit": "e0abe5dd0aa17e21296d8f92d12d55839402e182",
+  "source_branch": "codex/print-aware-studio",
+  "source_commit": "e4814327e8bf53d82ef5c0c6dd504d7b3fe64f6a",
   "source_directory": "dist",
-  "application_version": "V5.2.1"
+  "application_version": "V6-print-aware"
 }

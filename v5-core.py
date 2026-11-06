@@ -189,7 +189,7 @@ def line_data(geom):
     """Fast vector strokes using small, bounded cubic handles.
 
     We only smooth the SVG stroke, never cell geometry.  Handles are capped to
-    0.12 pixels away from the source line to keep small facial features intact.
+    EXPORT_GUARD_PX away from the source line (0.02 mm in V6; legacy default 0.12 px).
     """
     if geom.geom_type in ('MultiLineString','GeometryCollection'):
         return ''.join(line_data(g) for g in geom.geoms)
@@ -198,7 +198,7 @@ def line_data(geom):
     if len(pts)<2:return ''
     # Preserve short motifs, corner notches, eye glints, and common junctions.
     if len(pts)>16:
-        pts=np.asarray(LineString(pts).simplify(.075,preserve_topology=False).coords)
+        pts=np.asarray(LineString(pts).simplify(globals().get('EXPORT_SIMPLIFY_PX',.075),preserve_topology=False).coords)
     out=[f'M{pts[0,0]:.3f},{pts[0,1]:.3f}']
     # An almost-straight segment is better expressed compactly with L.
     for i in range(len(pts)-1):
@@ -210,8 +210,9 @@ def line_data(geom):
         straight1=a+d/3;straight2=b-d/3
         dv1=c1-straight1;dv2=c2-straight2
         n1=np.linalg.norm(dv1);n2=np.linalg.norm(dv2)
-        if n1>.12:c1=straight1+dv1*(.12/n1)
-        if n2>.12:c2=straight2+dv2*(.12/n2)
+        guard=globals().get('EXPORT_GUARD_PX',.12)
+        if n1>guard:c1=straight1+dv1*(guard/n1)
+        if n2>guard:c2=straight2+dv2*(guard/n2)
         if max(np.linalg.norm(c1-straight1),np.linalg.norm(c2-straight2))<.006:
             out.append(f'L{b[0]:.3f},{b[1]:.3f}')
         else:

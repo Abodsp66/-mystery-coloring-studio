@@ -1,0 +1,10 @@
+{
+  "jspdf": {
+    "version": "4.2.1",
+    "source": "https://registry.npmjs.org/jspdf/-/jspdf-4.2.1.tgz",
+    "npmIntegrity": "sha512-YyAXyvnmjTbR4bHQRLzex3CuINCDlQnBqoSYyjJwTP2x9jDLuKDzy7aKUl0hgx3uhcl7xzg32agn5vlie6HIlQ==",
+    "file": "jspdf.umd.min.js",
+    "sha256": "e6551fcdc32f09d6853b2c5126d18d01d9447e0da618a41a11ebeee0f6c20d54",
+    "license": "MIT"
+  }
+}

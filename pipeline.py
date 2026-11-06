@@ -9,21 +9,21 @@ def label_position(poly,max_pt=None,min_pt=None,symbol='D'):
     if poly.is_empty or poly.area<.05:return None
     g=GLYPHS[symbol];x0,y0,x1,y1=poly.bounds;em=MIN_PT*25.4/72/MM
     if min(x1-x0,y1-y0)<em*min(g['width'],g['height']) or poly.area<em*em*g['width']*g['height']:return None
-    p=polylabel(poly,tolerance=.35);boundary=poly.boundary;clearance=p.distance(boundary)
+    p=polylabel(poly,tolerance=.12/MM);boundary=poly.boundary;clearance=p.distance(boundary)
     sh.prepare(poly)
     for pt in np.arange(MAX_PT,MIN_PT-.01,-.2):
-        em=pt*25.4/72/MM;hw=em*g['width']/2+.04/MM;hh=em*g['height']/2+.04/MM
+        em=pt*25.4/72/MM;hw=em*g['width']/2+LABEL_PAD_MM/MM;hh=em*g['height']/2+LABEL_PAD_MM/MM
         if poly.covers(box(p.x-hw,p.y-hh,p.x+hw,p.y+hh)):
             return dict(x=p.x,y=p.y,pt=round(float(pt),2),angle=0,clearance=float(clearance))
-    step=max(1,math.sqrt((x1-x0)*(y1-y0)/300))
-    xx,yy=np.meshgrid(np.arange(x0+.5,x1,step),np.arange(y0+.5,y1,step))
+    step=max(.12/MM,math.sqrt((x1-x0)*(y1-y0)/300))
+    xx,yy=np.meshgrid(np.arange(x0+.12/MM,x1,step),np.arange(y0+.12/MM,y1,step))
     xy=np.column_stack([xx.ravel(),yy.ravel()]);xy=xy[sh.contains(poly,sh.points(xy))]
     distances=sh.distance(sh.points(xy),boundary)
     xy=xy[np.argsort(-distances,kind='stable')[:45]];xy=np.vstack([[p.x,p.y],xy])
     angles=np.array([0,90,45,-45,*range(-80,90,10)]);a=np.deg2rad(angles)
     rotations=np.array([[np.cos(a),-np.sin(a)],[np.sin(a),np.cos(a)]]).transpose(2,0,1)
-    for pt in [v for v in [4.5,4.,3.5,3.] if v>=MIN_PT]:
-        em=pt*25.4/72/MM;hw=em*g['width']/2+.025/MM;hh=em*g['height']/2+.025/MM
+    for pt in sorted({MIN_PT,*[v for v in [4.5,4.,3.5,3.] if v>=MIN_PT]},reverse=True):
+        em=pt*25.4/72/MM;hw=em*g['width']/2+LABEL_PAD_MM/MM;hh=em*g['height']/2+LABEL_PAD_MM/MM
         corners=np.array([[-hw,-hh],[hw,-hh],[hw,hh],[-hw,hh]])
         rotated=np.einsum('aij,kj->aki',rotations,corners)
         rectangles=sh.polygons((xy[:,None,None,:]+rotated[None,:,:,:]).reshape(-1,4,2))
@@ -41,7 +41,7 @@ def rgb_lab(rgb):
     f=np.where(xyz>.008856,np.cbrt(xyz),7.787*xyz+16/116)
     return np.stack([116*f[...,1]-16,500*(f[...,0]-f[...,1]),200*(f[...,1]-f[...,2])],axis=-1)
 
-def quantize(rgb,k,clean_edges=False,detail_boost=True):
+def quantize(rgb,k,clean_edges=False,detail_boost=True,fixed_palette=None):
     """Deterministic CIELAB quantization weighted toward small dark features.
 
     Six-bit-per-channel binning makes palette discovery faster than a unique
@@ -51,10 +51,23 @@ def quantize(rgb,k,clean_edges=False,detail_boost=True):
     global EDGE_STATS
     EDGE_STATS={'removedPaletteEntries':0,'reassignedPixels':0,'mode':'detail-weighted'}
     raw=rgb.reshape(-1,3)
-    codes=((raw[:,0].astype(np.int32)>>2)<<12)|((raw[:,1].astype(np.int32)>>2)<<6)|(raw[:,2].astype(np.int32)>>2)
-    count=np.bincount(codes,minlength=64**3)
+    if fixed_palette is not None:
+        palette=np.array(fixed_palette,dtype=np.uint8)
+        original_lab=rgb_lab(raw);catalog_lab=rgb_lab(palette)
+        ids=np.empty(len(raw),dtype=np.int32)
+        for start in range(0,len(raw),2048):
+            end=min(len(raw),start+2048)
+            distances=delta_e00(original_lab[start:end,None,:],catalog_lab[None,:,:])
+            ids[start:end]=np.argmin(distances,axis=1)
+        EDGE_STATS['mode']='fixed-palette-CIEDE2000'
+        return ids.reshape(H,W),palette
+    bits=5 if clean_edges else 6
+    shift=8-bits;levels=2**bits
+    codes=((raw[:,0].astype(np.int32)>>shift)<<(2*bits))|((raw[:,1].astype(np.int32)>>shift)<<bits)|(raw[:,2].astype(np.int32)>>shift)
+    EDGE_STATS['mode']='detail-weighted-scan-bins' if clean_edges else 'detail-weighted'
+    count=np.bincount(codes,minlength=levels**3)
     bins=np.flatnonzero(count)
-    sums=np.stack([np.bincount(codes,weights=raw[:,channel].astype(np.float64),minlength=64**3)[bins] for channel in range(3)],axis=1)
+    sums=np.stack([np.bincount(codes,weights=raw[:,channel].astype(np.float64),minlength=levels**3)[bins] for channel in range(3)],axis=1)
     binned_rgb=sums/count[bins,None]
     centers_lab=rgb_lab(binned_rgb.astype(np.float32))
     weights=count[bins].astype(np.float64)
@@ -66,9 +79,26 @@ def quantize(rgb,k,clean_edges=False,detail_boost=True):
         gx[:,1:]=np.abs(lum[:,1:]-lum[:,:-1]);gy[1:,:]=np.abs(lum[1:,:]-lum[:-1,:])
         edge=np.clip((np.maximum(gx,gy)-12)/44,0,1)
         emphasis=(1.+7*dark_detail+2*edge).reshape(-1)
-        support=np.bincount(codes,weights=emphasis,minlength=64**3)[bins]
+        support=np.bincount(codes,weights=emphasis,minlength=levels**3)[bins]
         weights=np.maximum(weights,support)
-    k=min(int(k),len(bins));chosen=[int(np.argmax(weights))]
+    eligible=np.ones(len(bins),dtype=bool)
+    if clean_edges:
+        # Discover base inks from locally stable pixels rather than spending
+        # palette slots on scanner grain and anti-aliasing bands. Classification
+        # still uses every input pixel; no spatial islands are deleted here.
+        value=rgb.astype(np.int16);support=np.zeros((H,W),np.uint8)
+        for dy,dx in [(-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1)]:
+            neighbor=np.roll(value,(dy,dx),axis=(0,1))
+            close=np.max(np.abs(value-neighbor),axis=2)<8
+            if dy<0:close[-1]=False
+            if dy>0:close[0]=False
+            if dx<0:close[:,-1]=False
+            if dx>0:close[:,0]=False
+            support+=close
+        stable=np.bincount(codes,weights=(support>=7).ravel(),minlength=levels**3)[bins]
+        eligible=(stable>=max(3.,W*H*.001))|(((centers_lab[:,0]<15)&(count[bins]>=1))|((centers_lab[:,0]>95)&(count[bins]>=3)))
+        if not np.any(eligible):eligible[:]=True
+    k=min(int(k),int(np.sum(eligible)));chosen=[int(np.argmax(np.where(eligible,weights,-1)))]
     distance=np.full(len(bins),np.inf,dtype=np.float32)
     # Use weighted, diverse seeds so small dark eyes/eyebrows can survive.
     for _ in range(1,k):
@@ -76,8 +106,9 @@ def quantize(rgb,k,clean_edges=False,detail_boost=True):
         distance=np.minimum(distance,np.einsum('ij,ij->i',difference,difference))
         score=distance*np.power(weights,.40)
         score[chosen]=-1
+        score[~eligible]=-1
         new=int(np.argmax(score))
-        if score[new]<.005:break
+        if score[new]<.005 or (clean_edges and distance[new]<49):break
         chosen.append(new)
     centers=centers_lab[chosen].copy()
     # Weighted k-means on occupied color bins: far fewer nearest-neighbor queries
@@ -94,7 +125,7 @@ def quantize(rgb,k,clean_edges=False,detail_boost=True):
         centers=new
         if shift<.04:break
     assignments=cKDTree(centers).query(centers_lab)[1]
-    lookup=np.zeros(64**3,dtype=np.int32);lookup[bins]=assignments
+    lookup=np.zeros(levels**3,dtype=np.int32);lookup[bins]=assignments
     ids=lookup[codes];occupied=np.flatnonzero(np.bincount(ids,minlength=len(centers)))
     remap=np.zeros(len(centers),np.int32);remap[occupied]=np.arange(len(occupied))
     ids=remap[ids]
@@ -124,7 +155,7 @@ def fast_candidates(c):
     """Minimal legal offsets; expensive GEOS checks only for a small candidate set."""
     import shapely as sh
     poly=c['poly'];old=c['label'];g=GLYPHS[SYMBOLS[c['color']]]
-    origin=np.array([old['x'],old['y']]);radius=min(6.,max(2.,1.9/MM))
+    origin=np.array([old['x'],old['y']]);radius=1.9/MM
     offsets=np.array([(0,0),*( (a*radius,b*radius) for a,b in [(-1,0),(1,0),(0,-1),(0,1),(-.7,-.7),(-.7,.7),(.7,-.7),(.7,.7)] ),
                      *( (a*radius*.5,b*radius*.5) for a,b in [(-1,0),(1,0),(0,-1),(0,1)] )],dtype=float)
     positions=origin+offsets
@@ -138,7 +169,7 @@ def fast_candidates(c):
     boundary=poly.boundary
     clear=sh.distance(sh.points(positions),boundary)
     em=old['pt']*25.4/72/MM
-    hw=em*g['width']/2+.06/MM;hh=em*g['height']/2+.06/MM
+    hw=em*g['width']/2+LABEL_PAD_MM/MM;hh=em*g['height']/2+LABEL_PAD_MM/MM
     angle=math.radians(old['angle']);co,si=math.cos(angle),math.sin(angle)
     corners=np.array([[-hw,-hh],[hw,-hh],[hw,hh],[-hw,hh]])@np.array([[co,si],[-si,co]])
     rects=sh.polygons(positions[:,None,:]+corners)
@@ -194,42 +225,49 @@ def serialize_result(cells,palette,settings,metrics,network=None):
     for c in cells:
         q=c['poly'].representative_point()
         payload.append({'id':c['id'],'color':int(c['color']),'path':path_data(c['poly']),'label':c['label'],'areaMM2':c['poly'].area*MM*MM,'anchor':[q.x,q.y]})
+    metrics['usedColors']=len(set(c['color'] for c in cells))
+    metrics['printQA']=print_audit(cells,settings)
+    metrics['historyDepth']=len(UNDO)
     metrics.update({'cells':len(cells),'missing':missing,'labeled':len(cells)-missing,'minimumLabelPt':min((c['label']['pt'] for c in cells if c['label']),default=None),'precolored':0})
     def filled_path(g):
         if g.is_empty:return ''
         return path_data(g) if g.geom_type=='Polygon' else ''.join(filled_path(p) for p in g.geoms)
     progress('تجهيز معاينة الحل الملون…')
     solution=[filled_path(sh.union_all(export_polys[np.array([c['color']==i for c in cells])])) for i in range(len(palette))]
-    return {'w':W,'h':H,'mm':MM,'palette':palette.tolist(),'cells':payload,'solutionPaths':solution,'network':network,'metrics':metrics,'settings':settings,'glyphs':GLYPHS,'engine':'V5.2-detail-guarded'}
+    return {'w':W,'h':H,'mm':MM,'palette':palette.tolist(),'cells':payload,'solutionPaths':solution,'network':network,'metrics':metrics,'settings':settings,'glyphs':GLYPHS,'engine':'V6-print-aware'}
 
 def run_image(raw,width,height,config,glyphs):
-    global W,H,MM,MIN_PT,MAX_PT,DENSITY,GLYPHS,LAST,EDGE_GUARD
+    global W,H,MM,MIN_PT,MAX_PT,DENSITY,GLYPHS,LAST,EDGE_GUARD,LABEL_PAD_MM,EXPORT_GUARD_PX,EXPORT_SIMPLIFY_PX
     start=time.time();W=int(width);H=int(height);GLYPHS=json.loads(glyphs);settings=json.loads(config)
+    validate_settings(settings)
+    UNDO.clear()
     if W<8 or H<8 or W*H>1100*1100:raise ValueError('أبعاد الصورة خارج حدود المعالجة.')
     pw,ph=settings['paper'];margin=12
-    physical_width=min(pw-2*margin,(ph-45)*W/H);MM=physical_width/W
+    legend_reserve=50 if len(settings.get('fixedPalette') or [])>24 or settings['colors']>24 else 40
+    settings['layout']={'marginMM':margin,'legendReserveMM':legend_reserve}
+    physical_width=min(pw-2*margin,(ph-margin-legend_reserve)*W/H);MM=physical_width/W
     MIN_PT=float(settings['minFont']);MAX_PT=max(5.5,MIN_PT);DENSITY=float(settings['density']);EDGE_GUARD=float(settings.get('edgeGuard',.32))
+    LABEL_PAD_MM=settings['lineWidth']/2+.15+.03+.001*MM
+    EXPORT_GUARD_PX=.02/MM;EXPORT_SIMPLIFY_PX=.01/MM
     placement.cache_clear();bezier_segments.cache_clear();label_position.cache_clear()
     rgb=np.frombuffer(bytes(raw),dtype=np.uint8).reshape(H,W,4)[...,:3]
     progress('استخراج لوحة الألوان؛ دون حذف المناطق الصغيرة…')
     working=edge_denoise(rgb) if settings.get('denoise',True) else rgb
-    labels,palette=quantize(working,int(settings['colors']),settings.get('cleanEdges',False),settings.get('detailBoost',True))
+    labels,palette=quantize(working,int(settings['colors']),settings.get('cleanEdges',False),settings.get('detailBoost',True),settings.get('fixedPalette'))
+    if settings.get('cleanEdges',False):labels=restore_edge_classification(working,labels,palette)
     components=sum(ndi.label(labels==i)[1] for i in range(len(palette)))
     if components>6500:raise ValueError('تفاصيل الصورة تتجاوز قدرة هذه النسخة. جرّب دقة أقل أو عدد ألوان أقل؛ لم تُحذف التفاصيل آليًا.')
     progress('رسم الحدود المشتركة والمنحنيات بأسلوب V5…')
     color_lines=boundary_lines(labels)
-    oldw,oldh=W,H;W,H=640,900
-    paths=decorative_paths(seed=int(settings.get('seed',99))) if DENSITY>0 else []
-    W,H=oldw,oldh
-    paths=[scale(p,xfact=W/640,yfact=H/900,origin=(0,0)) for p in paths]
-    cells=build_cells(labels,color_lines,paths)
+    cells=build_cells(labels,color_lines,[])
     if len(cells)>12000:raise ValueError('نتجت خلايا كثيرة جدًا. خفّض كثافة التقسيم أو الدقة ثم أعد المحاولة.')
     frozen=[unary_union([c['poly'] for c in cells if c['color']==i]) for i in range(len(palette))]
     progress('معالجة الفواصل الصغيرة داخل اللون نفسه فقط…')
     cells,merged=merge_fragments(cells)
-    cells,merged2=reduce_crowding(cells)
-    if DENSITY>0:cells,cuts=distribute_large_cells(cells)
-    else:cuts=0
+    progress('تقسيم المساحات بالملليمتر مع فحص اتساع كل رمز…')
+    original_missing=sum(label_position(c['poly'],symbol=SYMBOLS[c['color']]) is None for c in cells)
+    cells,cuts=physical_cells(cells,settings)
+    merged2=0
     for i,c in enumerate(cells):c['id']=i+1
     progress('توزيع الرموز وفحص اتساعها…')
     spread_start=time.time();moved=spread(cells);spread_seconds=time.time()-spread_start
@@ -250,6 +288,9 @@ def run_image(raw,width,height,config,glyphs):
     if gap>audit_tolerance or max(errors,default=0)>audit_tolerance:raise ValueError('لم يجتز التقسيم فحص حفظ مناطق الألوان. أعد المحاولة بإعدادات أخرى.')
     audit_seconds=time.time()-audit_start
     metrics={'sameColorMerges':merged+merged2,'balancedCuts':cuts,'labelsMoved':moved,'colorGeometryError':max(errors,default=0),'coverageGap':gap,'sourceComponents':components,'seconds':round(time.time()-start,1),'scope':'Source pixels are quantized to a limited palette. Original class borders are smoothed with bounded displacement; exact photographic identity is not guaranteed. Unlabeled cells remain visible.'}
+    metrics['sourceColorError']=color_audit(rgb,labels,palette)
+    metrics['unresolvedBeforeSplitting']=original_missing
+    metrics['usedColors']=len(set(c['color'] for c in cells))
     metrics['spacingSeconds']=round(spread_seconds,2)
     metrics['auditSeconds']=round(audit_seconds,2)
     metrics['auditGridPixels']=audit_grid
@@ -263,7 +304,9 @@ def change_code(cell_id,color):
     if LAST is None:raise ValueError('لا توجد نتيجة قابلة للتعديل.')
     cells,palette,settings,metrics,network=LAST
     if not 0<=int(color)<len(palette):raise ValueError('لون غير صالح.')
-    c=next(c for c in cells if c['id']==int(cell_id));c['color']=int(color)
+    c=next(c for c in cells if c['id']==int(cell_id))
+    remember_edit()
+    c['color']=int(color)
     c['label']=label_position(c['poly'],symbol=SYMBOLS[int(color)])
     metrics['manualCodeChanges']=metrics.get('manualCodeChanges',0)+1
     return json.dumps(serialize_result(cells,palette,settings,metrics,network))
