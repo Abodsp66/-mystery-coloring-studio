@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="840" viewBox="0 0 640 840">
+<!-- Original test artwork authored for this project; CC0. No reference artwork. -->
+<rect width="640" height="840" fill="#d9c4a2"/>
+<path d="M0 0H640V120H0Z" fill="#aa8b6b"/>
+<rect x="95" y="110" width="450" height="590" rx="210" fill="#665447"/>
+<path d="M125 700V337C125 72 515 72 515 337V700Z" fill="#9dc6cd"/>
+<path d="M160 700V371C160 150 480 150 480 371V700Z" fill="#ad704f"/>
+<path d="M183 700V380C183 192 457 192 457 380V700Z" fill="#644c3d"/>
+<rect x="219" y="402" width="82" height="234" rx="16" fill="#b88e66"/>
+<rect x="339" y="402" width="82" height="234" rx="16" fill="#b88e66"/>
+<path d="M303 300H337V700H303Z" fill="#ad704f"/>
+<rect x="252" y="458" width="20" height="28" rx="8" fill="#e1bd65"/>
+<rect x="370" y="458" width="20" height="28" rx="8" fill="#e1bd65"/>
+<path d="M0 686H640V840H0Z" fill="#a9a39a"/>
+<path d="M0 738H640V754H0Z M200 686H216V840H200Z M424 686H440V840H424Z" fill="#d9c4a2"/>
+<ellipse cx="320" cy="753" rx="123" ry="44" fill="#665447"/>
+<ellipse cx="320" cy="744" rx="100" ry="29" fill="#77aebc"/>
+<path d="M300 685H340V742H300Z" fill="#aa8b6b"/>
+<ellipse cx="320" cy="684" rx="66" ry="22" fill="#9dc6cd"/>
+<path d="M40 635H143L127 733H56Z" fill="#ad704f"/>
+<rect x="82" y="488" width="18" height="150" fill="#496b4e"/>
+<ellipse cx="68" cy="548" rx="38" ry="25" fill="#789765"/>
+<ellipse cx="118" cy="506" rx="35" ry="28" fill="#496b4e"/>
+<ellipse cx="79" cy="455" rx="34" ry="31" fill="#789765"/>
+<path d="M509 633H608L592 733H525Z" fill="#ad704f"/>
+<path d="M550 633V501H568V633Z" fill="#496b4e"/>
+<ellipse cx="534" cy="558" rx="32" ry="25" fill="#789765"/>
+<ellipse cx="589" cy="511" rx="28" ry="26" fill="#496b4e"/>
+</svg>

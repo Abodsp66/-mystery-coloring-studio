@@ -13,3 +13,9 @@
 .overlayControl input{width:90px;}
 @media(max-width:800px){.metrics{grid-template-columns:repeat(3,minmax(0,1fr));}}
 @media(max-width:480px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr));}}
+
+@font-face{font-family:'Studio Digits';src:url('fonts/StudioDigits.ttf') format('truetype');font-weight:normal;font-style:normal;font-display:block}
+#printState{padding:12px 20px;font-size:12px;line-height:1.8;background:#eef5ee;color:#24584c;border-top:1px solid #e0e6df}
+#printState.review{background:#fff1de;color:#835b2d}.paletteImport p{font-size:11px}.paletteImport input{max-width:100%}
+
+#reviewCells{width:min(300px,65vw)}

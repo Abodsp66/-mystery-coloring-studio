@@ -1,0 +1,122 @@
+{
+  "baselineCommit": "6798673",
+  "fixtureLicense": "Original project artwork, CC0",
+  "inputRasterSize": [
+    512,
+    672
+  ],
+  "config": {
+    "paper": [
+      210,
+      297
+    ],
+    "colors": 18,
+    "minFont": 5,
+    "density": 0.7,
+    "lineWidth": 0.16,
+    "denoise": true,
+    "cleanEdges": true,
+    "detailBoost": true,
+    "edgeGuard": 0.3,
+    "seed": 99
+  },
+  "nativeEngineSHA256": {
+    "v5-core.py": "124e6e111896461023d7c6989c3aabd8ef104858fb3ae3deab7936bc75ed9b17",
+    "pipeline.py": "d2a85819b587936828b5ff08cce7a4c4ff3293538a662d087abb9b1a4f531bd4",
+    "print-studio.py": "451d3fff964d37c24eca2a67f7a3285ca105a8eeb60fc8d0fcafcd331acc1535"
+  },
+  "fixtures": [
+    {
+      "fixture": "original-attic",
+      "sourceSHA256": "be1cb8ddd29028207d785b2ed527afe5480cc106bada88272275a241da1bee11",
+      "v6": {
+        "cells": 1078,
+        "unnumbered": 2,
+        "colors": 14,
+        "sourceComponents": 42,
+        "seconds": 16.4,
+        "strokeConflicts": 0,
+        "labelConflicts": 0,
+        "printStatus": "review",
+        "sourceColorError": {
+          "deltaE00Median": 0.0,
+          "deltaE00P95": 0.531,
+          "deltaE00P99": 11.221,
+          "sampledPixels": 16384,
+          "stage": "Input RGB versus cleaned/quantized palette, before contour smoothing/export"
+        },
+        "coverageGapPixels2": 2.1606131137088154e-05,
+        "colorGeometryErrorPixels2": 1.108058960197747e-05,
+        "balancedCuts": 1028,
+        "unresolvedBeforeSplitting": 2
+      },
+      "baseline": {
+        "cells": 1997,
+        "unnumbered": 991,
+        "colors": 18,
+        "sourceComponents": 1031,
+        "seconds": 9.5,
+        "strokeConflicts": 124,
+        "labelConflicts": 0,
+        "printStatus": "review",
+        "sourceColorError": {
+          "deltaE00Median": 0.0,
+          "deltaE00P95": 0.0,
+          "deltaE00P99": 4.009,
+          "sampledPixels": 16384,
+          "stage": "Input RGB versus cleaned/quantized palette, before contour smoothing/export"
+        },
+        "coverageGapPixels2": 3.881179687253379e-06,
+        "colorGeometryErrorPixels2": 2.5216016268450207e-06,
+        "balancedCuts": 296,
+        "unresolvedBeforeSplitting": null
+      }
+    },
+    {
+      "fixture": "original-courtyard",
+      "sourceSHA256": "32f5a4ec37f2be659d6a6dc3b9659518338b522082e2e6aebb755b5051484283",
+      "v6": {
+        "cells": 1039,
+        "unnumbered": 2,
+        "colors": 11,
+        "sourceComponents": 40,
+        "seconds": 9.5,
+        "strokeConflicts": 0,
+        "labelConflicts": 0,
+        "printStatus": "review",
+        "sourceColorError": {
+          "deltaE00Median": 0.0,
+          "deltaE00P95": 2.352,
+          "deltaE00P99": 10.416,
+          "sampledPixels": 16384,
+          "stage": "Input RGB versus cleaned/quantized palette, before contour smoothing/export"
+        },
+        "coverageGapPixels2": 9.521369881653752e-06,
+        "colorGeometryErrorPixels2": 8.950820225913713e-06,
+        "balancedCuts": 995,
+        "unresolvedBeforeSplitting": 2
+      },
+      "baseline": {
+        "cells": 2403,
+        "unnumbered": 1373,
+        "colors": 18,
+        "sourceComponents": 1411,
+        "seconds": 7.4,
+        "strokeConflicts": 121,
+        "labelConflicts": 0,
+        "printStatus": "review",
+        "sourceColorError": {
+          "deltaE00Median": 0.0,
+          "deltaE00P95": 0.0,
+          "deltaE00P99": 3.816,
+          "sampledPixels": 16384,
+          "stage": "Input RGB versus cleaned/quantized palette, before contour smoothing/export"
+        },
+        "coverageGapPixels2": 1.8086763883498776e-06,
+        "colorGeometryErrorPixels2": 1.1882975155992365e-06,
+        "balancedCuts": 275,
+        "unresolvedBeforeSplitting": null
+      }
+    }
+  ]
+}

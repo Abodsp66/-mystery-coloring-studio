@@ -1,0 +1,6 @@
+# Optional native engine tests/benchmarks; never needed to run the website.
+numpy==2.3.5
+scipy==1.17.0
+shapely==2.1.2
+fonttools==4.61.1
+PyMuPDF==1.26.6

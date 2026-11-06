@@ -5,6 +5,7 @@ Start the HTTP server first. See DEVELOPMENT_AR.md for installation and usage.
 import argparse
 import asyncio
 import base64
+import fitz
 import json
 import os
 from pathlib import Path
@@ -49,13 +50,13 @@ async def download(page, button, output):
     return target
 
 
-async def make_image(page, mime, tiles=False):
+async def make_image(page, mime, tiles=False, thin=False):
     # Actual image bytes go through the file input and browser image decoder.
-    data = await page.evaluate("""({mime, tiles}) => {
-        const c = document.createElement('canvas'); c.width=128; c.height=128;
+    data = await page.evaluate("""({mime, tiles, thin}) => {
+        const c = document.createElement('canvas'); c.width=128; c.height=tiles?96:128;
         const x = c.getContext('2d');
         if (tiles) {
-            for (let y=0;y<8;y++) for (let i=0;i<8;i++) {
+            for (let y=0;y<6;y++) for (let i=0;i<8;i++) {
                 x.fillStyle=`rgb(${16+i*32},${16+y*32},128)`;
                 x.fillRect(i*16,y*16,16,16);
             }
@@ -64,8 +65,9 @@ async def make_image(page, mime, tiles=False):
             x.fillStyle='#40816b'; x.fillRect(16,20,96,88);
             x.fillStyle='#d47157'; x.fillRect(40,40,48,48);
         }
+        if(thin){x.fillStyle='#000';x.fillRect(48,48,1,1);}
         return c.toDataURL(mime).split(',')[1];
-    }""", {"mime": mime, "tiles": tiles})
+    }""", {"mime": mime, "tiles": tiles, "thin": thin})
     extension = {"image/png": "png", "image/jpeg": "jpg", "image/webp": "webp"}[mime]
     return {"name": f"upload.{extension}", "mimeType": mime,
             "buffer": base64.b64decode(data)}
@@ -98,7 +100,7 @@ async def main(args):
             await expect(page.locator("html")).to_have_attribute("dir", "rtl")
             await expect(page.locator("#process")).to_be_disabled()
             for file in ["style.css", "app.js", "worker.js", "engine.js",
-                         "v5-core.py", "pipeline.py", "reference.svg"]:
+                         "v5-core.py", "pipeline.py", "print-studio.py", "studio-ui.js", "fonts/StudioDigits.ttf", "reference.svg"]:
                 response = await context.request.get(args.url.rstrip("/") + "/" + file)
                 assert response.status == 200, file
             await page.locator("#reference").click()
@@ -114,21 +116,21 @@ async def main(args):
             await expect(page.locator("#process")).to_be_disabled()
             summary["invalid_upload"] = "passed"
 
-            # The bundled demo uses the default 680px / A3 / medium settings.
+            # The bundled demo uses the default 680px / A4 / medium settings.
             await page.locator("#demo").click()
             await expect(page.locator("#process")).to_be_enabled()
             await convert(page, args.timeout)
             assert workers, "The real Web Worker did not start"
             report_path = await download(page, "#report", output)
             report = json.loads(report_path.read_text())
-            assert report["engine"] == "V5.2-detail-guarded"
+            assert report["engine"] == "V6-print-aware"
             metrics = report["metrics"]
             assert metrics["labeled"] > 0
             assert metrics["labeled"] + metrics["missing"] == metrics["cells"]
             assert len(report["unresolved"]) == metrics["missing"]
             assert metrics["precolored"] == 0
             assert report["clientFidelity"] is not None
-            assert report["settings"]["paper"] == [297, 420]
+            assert report["settings"]["paper"] == [210, 297]
             summary["demo_default_metrics"] = metrics
             await page.screenshot(path=str(output / "demo-desktop.png"), full_page=True)
 
@@ -145,8 +147,10 @@ async def main(args):
             await page.locator("#lineTone").select_option("#8f9693")
             svg_path = await download(page, "#svg", output)
             svg = ET.parse(svg_path).getroot()
-            assert svg.attrib["width"] == "297mm"
-            assert svg.attrib["height"] == "420mm"
+            assert svg.attrib["width"] == "210mm"
+            assert svg.attrib["height"] == "297mm"
+            assert "data:font/ttf;base64," in svg_path.read_text()
+            assert svg.findall(f".//{SVG}text"), "SVG text must remain live"
             assert len(svg.findall(f".//{SVG}text")) >= metrics["labeled"]
             assert svg.find(f".//{SVG}g/{SVG}path").attrib["stroke"] == "#8f9693"
             summary["views_svg_report"] = "passed"
@@ -156,11 +160,24 @@ async def main(args):
                 await page.locator("#print").click()
             popup = await popup_event.value
             await expect(popup.locator("svg")).to_be_visible()
-            assert await popup.locator("svg").get_attribute("width") == "297mm"
-            pdf = await popup.pdf(path=str(output / "demo-a3.pdf"), prefer_css_page_size=True)
+            assert await popup.locator("svg").get_attribute("width") == "210mm"
+            await popup.evaluate("document.fonts.ready")
+            pdf = await popup.pdf(path=str(output / "demo-a4.pdf"), prefer_css_page_size=True)
             assert pdf.startswith(b"%PDF-") and len(pdf) > 1000
+            assert b"/FontFile2" in pdf, "PDF must contain an embedded font program"
             await popup.close()
             summary["print_pdf"] = "passed"
+            direct_pdf=await download(page,"#pdf",output / "direct")
+            document=fitz.open(direct_pdf)
+            assert len(document)==1
+            dims=[document[0].rect.width*25.4/72,document[0].rect.height*25.4/72]
+            assert abs(dims[0]-210)<.01 and abs(dims[1]-297)<.01,dims
+            assert any("StudioDigits" in font[3] for font in document[0].get_fonts()),"Missing portable numeric font"
+            assert not document[0].get_images(),"Print PDF must remain vector"
+            assert "V6" in document[0].get_text()
+            document.close()
+            summary["direct_vector_A4_PDF_embedded_font"]="passed"
+
 
             # Upload and process all three supported formats, in the same worker.
             for mime in ["image/png", "image/jpeg", "image/webp"]:
@@ -173,16 +190,24 @@ async def main(args):
                 await page.locator("#paper").select_option("A4")
                 await page.locator("#orientation").select_option("landscape")
                 await page.locator("#density").select_option("0")
-                await page.locator("#colors").select_option("64" if tiles else "8")
+                await page.locator("#cleanEdges").select_option("off")
+                await page.locator("#denoise").select_option("off")
+                await page.locator("#colors").select_option("48" if tiles else "8")
+                if tiles:
+                    if not await page.locator(".paletteImport").evaluate("el=>el.open"):
+                        await page.locator(".paletteImport summary").click()
+                    colors=["#%02x%02x80"%(16+x*32,16+y*32) for y in range(6) for x in range(8)]
+                    await page.locator("#paletteFile").set_input_files({"name":"48-colors.json","mimeType":"application/json","buffer":json.dumps({"colors":colors}).encode()})
+                    await expect(page.locator("#colors")).to_be_disabled()
                 await convert(page, args.timeout)
                 color_count = int(await page.locator("#colorCount").inner_text())
                 if tiles or mime == "image/png":
-                    assert color_count == (64 if tiles else 3)
+                    assert color_count == (48 if tiles else 3)
                 else:
                     assert 3 <= color_count <= 8  # JPEG introduces edge colors.
                 if tiles:
                     codes = await page.locator("#art svg g text").all_text_contents()
-                    assert "64" in codes and "1" in codes
+                    assert "48" in codes and "1" in codes
                 # Select a real rendered cell using the public click handler.
                 cell = page.locator("#art path[data-id]").first
                 geometry = await page.locator("#art path[data-id]").evaluate_all(
@@ -206,7 +231,71 @@ async def main(args):
                 path = await download(page, "#svg", output / mime.replace("/", "-"))
                 root = ET.parse(path).getroot()
                 assert (root.attrib["width"], root.attrib["height"]) == ("297mm", "210mm")
+                await expect(page.locator("#undo")).to_be_enabled()
+                await page.locator("#undo").click()
+                await expect(page.locator("#cancel")).to_be_hidden(timeout=args.timeout*1000)
+                assert geometry==await page.locator("#art path[data-id]").evaluate_all("nodes=>nodes.map(n=>n.getAttribute('d'))")
+                await page.locator("#art path[data-id]").first.dispatch_event("click")
+                assert await page.locator("#recodeColor").input_value()==old_color
                 summary[mime + "_upload_conversion_recode"] = "passed"
+                if tiles: await page.locator("#clearPalette").click()
+
+            # A real imported pencil palette must constrain the output colors.
+            palette={"name":"لوحة اختبار أصلية", "colors":[
+                {"hex":"#f6e9cd","name":"ورق"}, {"hex":"#40816b","name":"أخضر"}, {"hex":"#d47157","name":"طوبي"}]}
+            await page.locator("#file").set_input_files(await make_image(page,"image/png"))
+            await expect(page.locator("#status")).to_contain_text("الصورة جاهزة")
+            if not await page.locator(".paletteImport").evaluate("el=>el.open"):
+                await page.locator(".paletteImport summary").click()
+            await page.locator("#paletteFile").set_input_files({"name":"pencils.json","mimeType":"application/json","buffer":json.dumps(palette).encode()})
+            await expect(page.locator("#colors")).to_be_disabled()
+            await expect(page.locator("#paletteName")).to_contain_text("لوحة اختبار أصلية")
+            await convert(page,args.timeout)
+            catalog_report=json.loads((await download(page,"#report",output / "catalog")).read_text())
+            assert catalog_report["palette"]==[[246,233,205],[64,129,107],[212,113,87]]
+            assert catalog_report["metrics"]["printQA"]["status"]=="passed"
+            assert catalog_report["exportQA"]["ready"]
+            assert catalog_report["settings"]["paletteNames"]==["ورق","أخضر","طوبي"]
+            assert await page.locator("#art svg text").evaluate_all("""nodes => {
+                const svg=nodes[0].ownerSVGElement, inv=svg.getCTM().inverse();
+                return nodes.every(n=>{const b=n.getBBox(),m=n.getCTM();
+                    return [[b.x,b.y],[b.x+b.width,b.y+b.height]].every(([x,y])=>{
+                        const p=new DOMPoint(x,y).matrixTransform(m).matrixTransform(inv);
+                        return p.x>=10 && p.x<=287 && p.y>=10 && p.y<=200;
+                    });
+                });
+            }"""), "A4 landscape glyphs or legend exceeded the 10mm margin"
+            # Real same-color manual merge, followed by exact geometry undo.
+            await page.locator("#density").select_option("0.45")
+            await convert(page,args.timeout)
+            before_count=int(await page.locator("#regionCount").inner_text())
+            original_paths=await page.locator("#art path[data-id]").evaluate_all("nodes=>nodes.map(n=>n.getAttribute('d'))")
+            await page.locator("#art path[data-id]").first.dispatch_event("click")
+            await page.locator("#merge").click()
+            await expect(page.locator("#cancel")).to_be_hidden(timeout=args.timeout*1000)
+            assert int(await page.locator("#regionCount").inner_text())==before_count-1
+            await page.locator("#undo").click()
+            await expect(page.locator("#cancel")).to_be_hidden(timeout=args.timeout*1000)
+            assert original_paths==await page.locator("#art path[data-id]").evaluate_all("nodes=>nodes.map(n=>n.getAttribute('d'))")
+            summary["same_color_merge_and_undo"]="passed"
+            await page.locator("#clearPalette").click()
+            await expect(page.locator("#colors")).to_be_enabled()
+            summary["fixed_pencil_palette_and_print_margins"]="passed"
+
+            # Tiny real black feature is preserved, flagged, and reachable from the review selector.
+            await page.locator("#file").set_input_files(await make_image(page,"image/png",thin=True))
+            await expect(page.locator("#status")).to_contain_text("الصورة جاهزة")
+            await page.locator("#colors").select_option("8")
+            await page.locator("#density").select_option("0")
+            await convert(page,args.timeout)
+            assert int(await page.locator("#badCount").inner_text())>0
+            await expect(page.locator("#reviewCells")).to_be_enabled()
+            await page.locator("#reviewCells").select_option(index=1)
+            await expect(page.locator("#selection")).to_contain_text("لا تتسع لرمز داخلي")
+            await expect(page.locator("#printState")).to_contain_text("مسودة")
+            draft=await download(page,"#pdf",output / "draft")
+            assert "DRAFT - REVIEW" in fitz.open(draft)[0].get_text()
+            summary["tiny_feature_preserved_review_and_draft_export"]="passed"
 
             # A changed setting must invalidate exports until a fresh conversion.
             await page.locator("#font").fill("4.5")

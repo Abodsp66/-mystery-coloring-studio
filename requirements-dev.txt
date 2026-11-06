@@ -1,2 +1,5 @@
 # Optional browser tests only. The website itself has no pip dependencies.
 playwright==1.62.0
+
+# Inspect actual PDF dimensions, embedded fonts and live text in browser tests.
+PyMuPDF==1.26.6
