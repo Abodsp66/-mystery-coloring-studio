@@ -397,7 +397,7 @@ def main():
             'ink_box_stroke_conflict_candidate_pct','same_code_shared_length_fraction',
             'render_components_ge_1_mm2_min','render_components_ge_1_mm2_max']
     with (args.output/'pdf_reference_metrics.csv').open('w',newline='') as handle:
-        writer=csv.DictWriter(handle,fieldnames=fields);writer.writeheader()
+        writer=csv.DictWriter(handle,fieldnames=fields,lineterminator='\n');writer.writeheader()
         for file in report['files']:
             for p in file['pages']:
                 geo=p.get('geometry',{});sizes=p['label_font_size_pt'] or {};areas=geo.get('face_area_mm2_ge_0_25') or {}
