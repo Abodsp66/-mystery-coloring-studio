@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="840" viewBox="0 0 640 840">
+<!-- Original test artwork authored for this project; CC0. No reference artwork. -->
+<rect width="640" height="840" fill="#f5ead5"/>
+<path d="M0 0H640V120L320 35L0 120Z" fill="#b27a55"/>
+<path d="M0 105L320 15L640 105V130L320 40L0 130Z" fill="#493d3b"/>
+<path d="M300 30H340V375H300Z" fill="#d8b282"/>
+<rect x="52" y="195" width="180" height="240" rx="28" fill="#493d3b"/>
+<rect x="68" y="211" width="148" height="208" rx="16" fill="#77b9c9"/>
+<path d="M68 320L150 265L216 320V419H68Z" fill="#bfdce0"/>
+<path d="M132 211H148V419H132Z M68 307H216V323H68Z" fill="#d8b282"/>
+<path d="M0 620L640 580V840H0Z" fill="#c59567"/>
+<path d="M0 680L640 660V678L0 698Z M0 770H640V788H0Z" fill="#b27a55"/>
+<ellipse cx="330" cy="724" rx="250" ry="78" fill="#e7cbb0"/>
+<rect x="228" y="437" width="304" height="186" rx="44" fill="#bd6d58"/>
+<rect x="211" y="535" width="338" height="108" rx="24" fill="#d89578"/>
+<rect x="240" y="620" width="28" height="67" fill="#493d3b"/>
+<rect x="491" y="620" width="28" height="67" fill="#493d3b"/>
+<rect x="260" y="474" width="92" height="81" rx="16" fill="#e1bc5e"/>
+<rect x="400" y="468" width="98" height="85" rx="16" fill="#596b84"/>
+<rect x="394" y="260" width="200" height="20" fill="#493d3b"/>
+<rect x="420" y="190" width="32" height="70" fill="#596b84"/>
+<rect x="462" y="172" width="37" height="88" fill="#bd6d58"/>
+<rect x="511" y="202" width="52" height="58" fill="#d8b282"/>
+<rect x="418" y="289" width="153" height="20" fill="#b27a55"/>
+<rect x="438" y="280" width="104" height="15" fill="#f6f0e3"/>
+<path d="M65 564H177L160 697H83Z" fill="#bd6d58"/>
+<path d="M115 568V414H129V568Z" fill="#507560"/>
+<path d="M120 497C47 491 40 437 63 431C105 420 116 458 120 497Z" fill="#82a275"/>
+<path d="M125 463C173 462 195 409 175 402C137 391 126 431 125 463Z" fill="#507560"/>
+<path d="M120 432C80 407 86 368 111 369C143 370 134 410 120 432Z" fill="#82a275"/>
+</svg>

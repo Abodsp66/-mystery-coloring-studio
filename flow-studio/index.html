@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>انسياب — أداة التلوين الغامض</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="brand" href="./"><span class="brandmark">∿</span><span>انسياب<small>FLOW STUDIO · 1.0</small></span></a><div class="local"><span></span>معالجة محلية · دون تنزيل محرك</div><button id="demo">جرّبي الرسم التوضيحي</button></header>
+<main>
+<section class="intro"><div><p class="eyebrow">من اللون إلى لغزٍ بخطوط ممتدة</p><h1>خطوط تتدفق.<br><em>والصورة تنتظر ألوانك.</em></h1><p>أداة مستقلة بمحرك جديد. ارفعي رسمًا ملونًا واحدًا، ثم قارني الحل بالأصل قبل الطباعة.</p></div><label class="upload">اختيار صورة <span>+</span><input id="file" type="file" accept="image/png,image/jpeg,image/webp"><small>PNG · JPG · WEBP</small></label></section>
+<div class="workspace">
+<aside>
+<div class="paneltitle"><span>01</span><h2>إعداد الورقة</h2></div>
+<div class="two"><label>المقاس<select id="paper" class="setting"><option>A4</option><option>A3</option></select></label><label>الاتجاه<select id="orientation" class="setting"><option value="portrait">عمودي</option><option value="landscape">أفقي</option></select></label></div>
+<label>الألوان<select id="colors" class="setting"><option>12</option><option>15</option><option selected>18</option><option>24</option><option>32</option></select></label>
+<p class="hint">الرموز 1–9 ثم حروف، كما في المراجع؛ محرف واحد يترك مساحة أكبر داخل الخلية.</p>
+<details><summary>لوحة أقلام خاصة</summary><input id="catalog" type="file" accept=".json,application/json"><p id="catalogName" class="hint">اختياري: ملف name وcolors بصيغة #RRGGBB.</p><button id="clearCatalog" hidden>إزالة اللوحة</button></details>
+<div class="paneltitle"><span>02</span><h2>التمويه الانسيابي</h2></div>
+<label>كثافة الخطوط<select id="density" class="setting"><option value=".35">هادئة · مساحات أوسع</option><option value=".7" selected>متوسطة · خطوط ممتدة</option><option value="1">كثيفة · تمويه أكثر</option><option value="0">مناطق اللون دون تمويه</option></select></label>
+<label>اتجاه التدفق<select id="angle" class="setting"><option value="-32">مائل بانحناء</option><option value="12">أفقي بانحناء</option><option value="62">عمودي بانحناء</option></select></label>
+<label>دقة التحليل<select id="resolution" class="setting"><option value="640">640 · أسرع</option><option value="960" selected>960 · متوازنة</option><option value="1200">1200 · تفاصيل أكثر</option></select></label>
+<div class="two"><label>الرمز (نقطة)<input id="font" class="setting" type="number" min="4.5" max="7" step=".5" value="5"></label><label>الخط (مم)<input id="stroke" class="setting" type="number" min=".1" max=".22" step=".01" value=".16"></label></div>
+<label class="check"><input id="scan" class="setting" type="checkbox" checked>تنظيف ضجيج الصور الممسوحة</label>
+<details><summary>تبسيط التفاصيل الصغيرة</summary><p class="hint">لإتاحة الرمز، تُدمج الجزر الصغيرة وقد يُوسّع موضع محلي في الخط الرفيع. مقدار التغيير يظهر بعد الإنشاء؛ راجعي ملامح الوجه في التراكب.</p><label>حد الجزيرة الصغيرة (مم²)<input id="detail" class="setting" type="number" min=".5" max="5" step=".5" value="2.5"></label><label>سقف التغيير في مناطق اللون<select id="budget" class="setting"><option value=".01">1%</option><option value=".025" selected>2.5%</option><option value=".04">4%</option><option value=".06">6%</option></select></label></details>
+<button id="process" class="primary" disabled>إنشاء ورقة التلوين <span>+</span></button><button id="cancel" hidden>إلغاء المعالجة</button><button id="variant" disabled>تجربة مسار تمويه آخر</button>
+<p class="footnote">الصور لا تغادر جهازك. الموقع يعمل محليًا بالكامل بعد تحميل ملفاته، دون تنزيل مكتبات من الإنترنت أثناء المعالجة.</p>
+</aside>
+<section class="studio" aria-label="المعاينة">
+<div class="tabs" role="group" aria-label="وضع العرض"><button data-view="outline" class="active">ورقة اللغز</button><button data-view="solution">الحل الملون</button><button data-view="compare">قبل وبعد</button><button data-view="overlay">تراكب شفاف</button><button data-view="source">الصورة الأصلية</button></div>
+<div class="statusbar"><p id="status" role="status" aria-live="polite">اختاري صورة أو جرّبي الرسم التوضيحي.</p><span id="badge">بانتظار الصورة</span></div>
+<div class="stats"><div><b id="time">—</b><span>ثانية للمحرك</span></div><div><b id="cells">—</b><span>خلية مرقمة</span></div><div><b id="missing">—</b><span>خلية بلا رمز</span></div><div><b id="changed">—</b><span>تبسيط مناطق اللون</span></div></div>
+<div id="overlayControl" hidden><label>شفافية الحل <input id="opacity" type="range" min="0" max="100" value="50"></label></div>
+<div id="viewport"><div id="art"><div class="empty"><span>∿</span><h2>مساحةٌ للصورة القادمة.</h2><p>خطوط ممتدة، وحل ملون، ورقة قابلة للفحص.</p></div></div></div>
+<div class="review"><p id="selection">بعد الإنشاء، انقري خلية لفحص رمزها ومساحتها.</p><label>الرمز<select id="code" disabled></select></label><button id="recode" disabled>تغيير الرمز</button><button id="undo" disabled>تراجع</button></div>
+<div id="palette" aria-label="دليل ألوان الرسم"></div>
+<div class="export"><p id="qa">تُتاح ملفات الطباعة بعد اجتياز التغطية واتساع الرموز. الغموض البصري يحتاج مراجعتك.</p><div><button id="pdf" disabled>تنزيل PDF</button><button id="svg" disabled>تنزيل SVG</button><button id="print" disabled>طباعة</button><button id="report" disabled>تقرير الفحص</button></div></div>
+</section>
+</div>
+<footer>أُنشئت «انسياب» بمحرك مستقل. نجاح الترقيم لا يضمن إخفاء الشخصية بالكامل أو مطابقة أقلامك على الورق. اطبعي بحجم100%.</footer>
+</main>
+<script src="vendor/jspdf.umd.min.js"></script><script type="module" src="app.mjs"></script>
+</body></html>

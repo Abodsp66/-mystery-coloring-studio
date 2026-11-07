@@ -1,5 +1,19 @@
 # Mystery Coloring Studio — Codex Instructions
 
+## Current application: independent Flow Studio
+
+The user explicitly requested a fresh implementation after rejecting the V6
+mosaic-like output. The current application is `flow-studio/`, with its own
+JavaScript modules and module worker; it must not import the legacy Python/JS
+coloring engine. Use `sh scripts/serve-flow.sh` (port 8765) for the current app.
+Read `docs/FLOW_STUDIO_AR.md`. Run `sh scripts/check-flow.sh`,
+`node --test --test-isolation=none tests/flow_engine.test.mjs`, and the real
+`tests/flow_browser.py` against the running current app after engine changes.
+The browser test blocks off-site requests and checks actual vector label fit.
+Do not publish copyrighted PDF images; use the original project fixtures.
+Preserve `dist/`, the original ZIP, reference SVG and PDFs as legacy/reference
+material. The instructions below describe that preserved original application.
+
 This repository contains an Arabic RTL browser-based mystery color-by-number web application. The uploaded file `Mystery-Coloring-Studio-V5.2.1-Local-Launch.zip` is the ORIGINAL source bundle. **Before changing code, unpack the archive into the repository root and commit the extracted files.** Do not delete the original zip until the extracted source has been verified.
 
 Expected structure after extraction:

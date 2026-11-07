@@ -1,0 +1,201 @@
+{
+  "method": "Chromium, actual Worker, no offsite requests; original CC0 fixtures, same A4/18 colors/5pt/.16mm/.7 density/2.5% budget settings",
+  "sourceSHA256": {
+    "export.mjs": "2ea79ec4b68069ef1715f5f988cd152f3bf3f32b9ece34eb64dbac07b0388a35",
+    "engine.mjs": "2ac0bfdcbb4028844653445b04bec763e4a4facb2a788534f03aecd155f7c305",
+    "geometry.mjs": "8ecea41cbb959585af193c6306800720c6c5bd86cdc65772f8a9893ae1198462",
+    "worker.mjs": "5abacfbdd77fe35af497527e7e3846543453561b1fc7c80f6d74c509f4d9ecdc",
+    "color.mjs": "3e410ba12950eacfa32e83a95769cc6dfd63beffcb9d017167cfffa88a8cad01",
+    "raster.mjs": "272bcd570be357f9f981bf2d0af47d2a8a3230468c2e2516f7213359bbac466c",
+    "app.mjs": "fb505833954eacd543935b8fba950844e926d44505de4d45d126cf6a3fb00cd4"
+  },
+  "fixtures": [
+    {
+      "fixture": "reader portrait (demo.svg)",
+      "metrics": {
+        "cells": 666,
+        "missing": 0,
+        "invalidInk": 0,
+        "flowColorChanges": 0,
+        "precolored": 0,
+        "printReady": true,
+        "baseRegions": 64,
+        "initialFlowCells": 1678,
+        "rejectedSlivers": 1012,
+        "smallDetailsMerged": 2283,
+        "thinDetailsWidened": 37,
+        "detailChangedPixels": 7048,
+        "detailChangedPct": 1.3110119047619047,
+        "colorError": {
+          "metric": "CIE76",
+          "median": 0,
+          "p95": 0.77,
+          "p99": 14.64,
+          "sampledPixels": 15812,
+          "meanRGB": 0.87,
+          "stage": "RGB input versus printable color classes, before vector tracing"
+        },
+        "field": "source-contour-continuations-and-nonlinear-isolines",
+        "spacingMM": 4.99,
+        "contourContinuations": 8,
+        "vector": {
+          "sharedChains": 2669,
+          "cubicSegments": 6104,
+          "straightSegments": 8775,
+          "crossingCheck": {
+            "unsafeChains": 0,
+            "relaxedChains": 0,
+            "rounds": 0,
+            "flattenToleranceMM": 0.012
+          }
+        },
+        "timings": {
+          "colorsMS": 394.4,
+          "detailsMS": 414.1,
+          "flowMS": 980.7,
+          "vectorMS": 262.1
+        },
+        "totalMS": 2079.5,
+        "scope": "Print geometry and complete region codes; not a human mystery score or a physical pencil calibration."
+      }
+    },
+    {
+      "fixture": "original-attic",
+      "sourceSHA256": "be1cb8ddd29028207d785b2ed527afe5480cc106bada88272275a241da1bee11",
+      "metrics": {
+        "cells": 686,
+        "missing": 0,
+        "invalidInk": 0,
+        "flowColorChanges": 0,
+        "precolored": 0,
+        "printReady": true,
+        "baseRegions": 42,
+        "initialFlowCells": 1433,
+        "rejectedSlivers": 747,
+        "smallDetailsMerged": 818,
+        "thinDetailsWidened": 5,
+        "detailChangedPixels": 1672,
+        "detailChangedPct": 0.31101190476190477,
+        "colorError": {
+          "metric": "CIE76",
+          "median": 0,
+          "p95": 0,
+          "p99": 2.25,
+          "sampledPixels": 15812,
+          "meanRGB": 0.23,
+          "stage": "RGB input versus printable color classes, before vector tracing"
+        },
+        "field": "source-contour-continuations-and-nonlinear-isolines",
+        "spacingMM": 4.99,
+        "contourContinuations": 8,
+        "vector": {
+          "sharedChains": 2589,
+          "cubicSegments": 4843,
+          "straightSegments": 7434,
+          "crossingCheck": {
+            "unsafeChains": 0,
+            "relaxedChains": 0,
+            "rounds": 0,
+            "flattenToleranceMM": 0.012
+          }
+        },
+        "timings": {
+          "colorsMS": 475.6,
+          "detailsMS": 377.7,
+          "flowMS": 753.7,
+          "vectorMS": 201.2
+        },
+        "totalMS": 1819.6,
+        "scope": "Print geometry and complete region codes; not a human mystery score or a physical pencil calibration."
+      },
+      "vectorAudit": {
+        "inkSamples": 33614,
+        "invalidCells": [],
+        "interiorSamples": 50967,
+        "colorMismatches": 0,
+        "transparentInterior": 0
+      }
+    },
+    {
+      "fixture": "original-courtyard",
+      "sourceSHA256": "32f5a4ec37f2be659d6a6dc3b9659518338b522082e2e6aebb755b5051484283",
+      "metrics": {
+        "cells": 710,
+        "missing": 0,
+        "invalidInk": 0,
+        "flowColorChanges": 0,
+        "precolored": 0,
+        "printReady": true,
+        "baseRegions": 39,
+        "initialFlowCells": 1567,
+        "rejectedSlivers": 857,
+        "smallDetailsMerged": 966,
+        "thinDetailsWidened": 1,
+        "detailChangedPixels": 1476,
+        "detailChangedPct": 0.27455357142857145,
+        "colorError": {
+          "metric": "CIE76",
+          "median": 0,
+          "p95": 2.79,
+          "p99": 2.79,
+          "sampledPixels": 15812,
+          "meanRGB": 0.81,
+          "stage": "RGB input versus printable color classes, before vector tracing"
+        },
+        "field": "source-contour-continuations-and-nonlinear-isolines",
+        "spacingMM": 4.99,
+        "contourContinuations": 8,
+        "vector": {
+          "sharedChains": 2674,
+          "cubicSegments": 4948,
+          "straightSegments": 7624,
+          "crossingCheck": {
+            "unsafeChains": 0,
+            "relaxedChains": 0,
+            "rounds": 0,
+            "flattenToleranceMM": 0.012
+          }
+        },
+        "timings": {
+          "colorsMS": 401.9,
+          "detailsMS": 245.4,
+          "flowMS": 520.2,
+          "vectorMS": 324.3
+        },
+        "totalMS": 1513.9,
+        "scope": "Print geometry and complete region codes; not a human mystery score or a physical pencil calibration."
+      },
+      "vectorAudit": {
+        "inkSamples": 34790,
+        "invalidCells": [],
+        "interiorSamples": 50237,
+        "colorMismatches": 0,
+        "transparentInterior": 0
+      }
+    }
+  ],
+  "settings": {
+    "paper": [
+      210,
+      297
+    ],
+    "colors": 18,
+    "font": 5,
+    "stroke": 0.16,
+    "density": 0.7,
+    "angle": -32,
+    "scan": true,
+    "detailMM2": 2.5,
+    "budget": 0.025,
+    "catalog": null,
+    "paletteName": null,
+    "paletteNames": null,
+    "seed": 37,
+    "curveBoundMM": 0.40249999999999997
+  },
+  "inputRasterSize": [
+    640,
+    840
+  ],
+  "fontSHA256": "c0cccd1bbe897abe22540824cac0e26f68378ed3e57e35c6a3c505ef67ff9520"
+}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="840" viewBox="0 0 640 840">
+<!-- Original CC0 test illustration: a reader, plant and arched window. -->
+<rect width="640" height="840" fill="#e5cda4"/>
+<path d="M50 460V175a145 145 0 0 1 290 0v285" fill="#638c99"/>
+<path d="M70 430V180a125 125 0 0 1 250 0v250" fill="#afced0"/>
+<path d="M195 56v373M69 246h252" stroke="#e5cda4" stroke-width="16"/>
+<path d="M73 367 184 266 220 315 278 222 319 267V429H73" fill="#6f8980"/>
+<path d="M0 690Q300 660 640 705v135H0" fill="#4a6461"/>
+<path d="M351 197Q324 111 383 72q65-47 123 13 74 20 61 115l-7 180-215 30Z" fill="#303c4b"/>
+<path d="M343 265q-40-45-33 2 7 48 43 37M532 262q36-45 41-1-2 44-36 46" fill="#c78a72" stroke="#303c4b" stroke-width="4"/>
+<path d="M343 172q38-88 102-45 36 50 93 60v98q-4 110-89 122-89-25-104-121Z" fill="#e4b095"/>
+<path d="M343 176q4-93 70-82 42-25 86 10 49 31 40 88-83-25-100-64-24 55-96 80Z" fill="#303c4b"/>
+<path d="M354 254q25-31 53 0M471 254q25-32 52-1" fill="none" stroke="#303c4b" stroke-width="9" stroke-linecap="round"/>
+<path d="M356 278q23-28 51 0-24 30-51 0M470 278q23-28 51 0-25 29-51 0" fill="#f5e8cf"/>
+<ellipse cx="384" cy="278" rx="10" ry="14" fill="#4a6461"/><ellipse cx="494" cy="278" rx="10" ry="14" fill="#4a6461"/>
+<ellipse cx="386" cy="275" rx="4" ry="6" fill="#303c4b"/><ellipse cx="496" cy="275" rx="4" ry="6" fill="#303c4b"/>
+<path d="M438 277 425 315l21 5" fill="none" stroke="#c78a72" stroke-width="7" stroke-linecap="round"/>
+<path d="M405 349q29-15 62 0-24 32-62 0" fill="#a95358"/>
+<path d="M412 349h48l-8 7h-33" fill="#f5e8cf"/>
+<path d="M404 393v51l-61 25 99 62 99-69-61-19v-51" fill="#c78a72"/>
+<path d="M331 452q-42 23-59 98l-45 174h359l-17-180q-1-77-65-92l-63 49Z" fill="#a95358"/>
+<path d="M330 461 297 574 281 686l-32 38h40l47-166M506 462q33 70 23 157l38 105h26l-20-177q-9-66-67-85" fill="#773e50"/>
+<path d="m207 569 146 45 151-45-14 159-138 55-128-48Z" fill="#d4a64f" stroke="#303c4b" stroke-width="5"/>
+<path d="m353 620 139-43-13 143-124 48-119-39-14-149Z" fill="#f5e8cf"/>
+<path d="M354 620v148M251 609l74 22M251 631l74 23M252 655l73 22M383 632l78-27M383 654l78-27M383 679l73-28" stroke="#e5cda4" stroke-width="6"/>
+<path d="M276 633q-22-36-35-15l-7 31q-37-22-43-3-4 17 18 22-29-4-27 15 2 13 24 14-22 4-15 19 5 10 27 11l57-2q23-43 1-92M493 635q19-33 30-15l4 31q33-23 40-5 4 15-16 23 25-5 26 12-1 16-22 18 20 6 12 19-7 9-26 9l-50-3q-21-39 2-89" fill="#e4b095" stroke="#c78a72" stroke-width="4" stroke-linejoin="round"/>
+<path d="M68 733 57 816h131l-12-83" fill="#b7774e"/>
+<path d="M116 741q22-80-9-194M113 642q-60-35-56-96 58 10 56 96M115 679q50-59 86-43-10 49-86 43M111 591q-14-71 29-97 33 66-29 97" fill="#6f8980" stroke="#4a6461" stroke-width="6"/>
+</svg>
