@@ -1,9 +1,6 @@
 # Local PDF dependency
 
-`jspdf.umd.min.js` is the unmodified official jsPDF **4.2.1** UMD distribution,
-MIT licensed. See `jsPDF-LICENSE.txt` and `manifest.json` for the exact source,
-verified npm SHA-512 integrity and local file SHA-256. Only the distribution and
-license are vendored; the application has no npm installation/build step.
-
-It is used for structured vector PDF export, not HTML rendering or importing
-untrusted SVG/PDF files. No CDN is contacted for PDF generation.
+The official unmodified jsPDF 4.2.1 UMD bundle is included under MIT, with its
+license and exact npm integrity/SHA-256 in `manifest.json`. It handles vector
+PDF output only; it is not the image segmentation or camouflage engine.
+No dependency download is required during conversion or export.

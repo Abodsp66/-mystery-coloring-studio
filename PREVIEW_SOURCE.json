@@ -1,7 +1,6 @@
 {
-  "repository": "Abodsp66/-mystery-coloring-studio",
-  "source_branch": "codex/print-aware-studio",
-  "source_commit": "e4814327e8bf53d82ef5c0c6dd504d7b3fe64f6a",
-  "source_directory": "dist",
-  "application_version": "V6-print-aware"
+  "application": "Flow Studio 1.0 — independent engine",
+  "source_branch": "codex/flow-studio",
+  "source_commit": "17af70d9bf1dfbec1deda5ab7ebebb418d609676",
+  "source_directory": "flow-studio"
 }
